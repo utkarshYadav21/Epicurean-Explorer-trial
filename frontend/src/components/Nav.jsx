@@ -15,12 +15,7 @@ const Nav = () => {
       {auth ? (
         <>
           <div className="left-section">
-            <img
-              className="logo"
-              src="https://s3.amazonaws.com/cdn.designcrowd.com/blog/31-Animal-Shelter-Logos-for-Organizations-and-Humane-Societies/pet-love-logo-by-dionysius-samuel-dribbble.png"
-              alt="Pet Palace Logo"
-            />
-            <Link to="/">petPalace</Link>
+            <Link to="/">Epicurean Explorer</Link>
           </div>
 
           <ul className="navbar">
@@ -28,14 +23,11 @@ const Nav = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/adopt">Adopt</Link>
-            </li>
-            <li>
-              <Link to="/giveaway">Giveaway</Link>
+              <Link to="/recipe">Recipes</Link>
             </li>
             <li>
               <Link to="/donate">
-                Donate
+                Contact Us
               </Link>
             </li>
           </ul>
@@ -48,12 +40,8 @@ const Nav = () => {
       ) : (
         <>
           <div className="left-section">
-            <img
-              className="logo"
-              src="https://s3.amazonaws.com/cdn.designcrowd.com/blog/31-Animal-Shelter-Logos-for-Organizations-and-Humane-Societies/pet-love-logo-by-dionysius-samuel-dribbble.png"
-              alt="Pet Palace Logo"
-            />
-            <Link to="/">petPalace</Link>
+       
+            <Link to="/">Epicurean Explorer</Link>
           </div>
 
           <ul className="navbar">
@@ -61,13 +49,10 @@ const Nav = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/adopt">Adopt</Link>
+              <Link to="/recipe">Recipe</Link>
             </li>
             <li>
-              <Link to="/giveaway">Giveaway</Link>
-            </li>
-            <li>
-              <Link to="/donate">Donate</Link>
+              <Link to="/contact-us">Contact Us</Link>
             </li>
           </ul>
           <div className="right-section">
