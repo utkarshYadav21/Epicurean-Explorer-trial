@@ -32,6 +32,8 @@ const Nav = () => {
             </li>
           </ul>
           <div className="right-section">
+            <Link to="/favourites">Favourites</Link>
+            <Link to="/shopping-bag">Shopping Bag</Link>
             <Link onClick={logout} to="/">
               Logout
             </Link>
@@ -40,7 +42,6 @@ const Nav = () => {
       ) : (
         <>
           <div className="left-section">
-       
             <Link to="/">Epicurean Explorer</Link>
           </div>
 
@@ -58,7 +59,7 @@ const Nav = () => {
           <div className="right-section">
             <>
               <Link to="/login">Login</Link>
-              <Link to="/register">Register</Link>
+              <Link to="/signup">SignUp</Link>
             </>
           </div>
         </>
