@@ -3,9 +3,7 @@ const catchasync = require("../utils/catchasync")
 
 exports.createUser = catchasync( async (req, res, next) =>{
     const newUser = await User.create(req.body);
-
     console.log("Data sent succesfully")
-
     res.status(201).json({
       status: 'Success',
       data: {

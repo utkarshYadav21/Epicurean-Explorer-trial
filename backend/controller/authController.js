@@ -30,9 +30,7 @@ exports.signup = catchasync(async (req,res,next) =>{
         password : req.body.password,
         passwordconfirm : req.body.passwordconfirm
     })
-
     sendtoken(newUser,201,res)
-    
 })
 
 
