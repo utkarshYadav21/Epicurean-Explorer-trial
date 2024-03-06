@@ -56,12 +56,6 @@ img {
 }
 
 /* CARD */
-.container {
-    display: grid;
-    place-items: center;
-    margin-inline: 1.5rem;
-    padding-block: 5rem;
-}
 
 .card__container {
     display: grid;
