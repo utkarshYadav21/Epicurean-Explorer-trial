@@ -33,6 +33,13 @@ const userSchema = new mongoose.Schema({
             },
             message : 'condfirm password and Password do not match'
         }
+    },
+    favrecipes : [{
+        type : String
+    }],
+    cart : {
+        type : mongoose.Schema.ObjectId,
+        ref : 'cart'
     }
 });
 

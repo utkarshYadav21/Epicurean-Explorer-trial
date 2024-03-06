@@ -1,5 +1,6 @@
 const User = require('../models/userModel')
 const jwt = require('jsonwebtoken');
+const Cart = require('../models/cartModel')
 const { promisify } = require('util')
 const AppError = require('../utils/apperror');
 const crypto = require('crypto');
@@ -30,6 +31,18 @@ exports.signup = catchasync(async (req,res,next) =>{
         password : req.body.password,
         passwordconfirm : req.body.passwordconfirm
     })
+
+    const cart = await Cart.create({
+        userid : req.body.email
+    })
+  
+      // Save the cart to the database
+  
+      // Update the user with the cart's ObjectId
+      newUser.cart = cart._id;
+      await newUser.save({validateBeforeSave : false});
+
+
     sendtoken(newUser,201,res)
 })
 
