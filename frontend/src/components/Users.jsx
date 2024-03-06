@@ -10,7 +10,10 @@ const Users = () => {
   };
 
   return (
-    <div className={`container ${isSignup ? "right-panel-active" : ""}`}>
+    <div className="user-container">
+
+
+    <div className={`user-container container ${isSignup ? "right-panel-active" : ""}`}>
       <div className="form-container sign-up-container">
         <form>
           <h1>Create Account</h1>
@@ -55,6 +58,7 @@ const Users = () => {
         </div>
       </div>
     </div>
+</div>
   );
 };
 
