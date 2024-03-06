@@ -226,12 +226,13 @@ input {
   width: 40px;
 }
 .navbar-container {
-  background-color: #637a7a;
+  background-color: transparent;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 10px;
   font-size: larger;
+  position: static;
 }
 
 .left-section {
