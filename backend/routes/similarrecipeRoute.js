@@ -4,4 +4,4 @@ const recipeController = require('../controller/recipeController')
 const router = express.Router()
 
 router.route('/')
-    .post()
+    .post(recipeController.getSimilarRecipe)
