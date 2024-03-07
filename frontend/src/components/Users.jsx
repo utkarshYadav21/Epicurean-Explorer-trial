@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/users.css";
-import { Link } from "react-router-dom";
+import { Link, json, useNavigate } from "react-router-dom";
 
 const Users = () => {
+  const navigate = useNavigate("");
+  const auth = localStorage.getItem("jwt");
+  if (auth) {
+    navigate("/");
+  }
   const [isSignup, setIsSignup] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -15,9 +20,8 @@ const Users = () => {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    console.log(name,email,password,confirmPass)
-    let user = await fetch("http://127.0.0.1:8000/api/v1/users/signup", {
-      method:"post",
+    let currUser = await fetch("http://127.0.0.1:8000/api/v1/users/signup", {
+      method: "post",
       body: JSON.stringify({
         name,
         email,
@@ -28,12 +32,44 @@ const Users = () => {
         "Content-Type": "application/json",
       },
     });
-    user = await user.json();
-    console.log(user);
+    currUser = await currUser.json();
+    if (currUser.status === "success") {
+      const jwt = currUser.token;
+      const user = JSON.stringify(currUser.user);
+      localStorage.setItem("jwt", jwt);
+      localStorage.setItem("user", user);
+    } else {
+      alert(currUser.message);
+    }
     setName("");
     setEmail("");
     setPassword("");
     setConfirmPass("");
+  };
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    let currUser = await fetch("http://127.0.0.1:8000/api/v1/users/login", {
+      method: "post",
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    currUser = await currUser.json();
+    if (currUser.status === "success") {
+      const jwt = currUser.token;
+      const user = JSON.stringify(currUser.user);
+      localStorage.setItem("jwt", jwt);
+      localStorage.setItem("user", user);
+    } else {
+      alert(currUser.message);
+    }
+    setName("");
+    setEmail("");
+    setPassword("");
   };
   return (
     <div className="user-container">
@@ -45,14 +81,29 @@ const Users = () => {
         <div className="form-container sign-up-container">
           <form>
             <h1>Create Account</h1>
-            <input type="text" value={name} placeholder="Name" onChange={(e)=>setName(e.target.value)}/>
-            <input type="email" value={email} placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
-            <input type="password" value={password} placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+            <input
+              type="text"
+              value={name}
+              placeholder="Name"
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              type="email"
+              value={email}
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              value={password}
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <input
               type="password"
               value={confirmPass}
               placeholder="Confirm Password"
-              onChange={(e)=>setConfirmPass(e.target.value)}
+              onChange={(e) => setConfirmPass(e.target.value)}
             />
             <button onClick={handleSignUp}>SignUp</button>
           </form>
@@ -60,10 +111,19 @@ const Users = () => {
         <div className="form-container sign-in-container">
           <form>
             <h1>Login</h1>
-            <input type="email" name="email" placeholder="Email" />
-            <input type="password" name="password" placeholder="Password" />
-            <a href="#">Forgot Your Password</a>
-            <button>Login</button>
+            <input
+              type="email"
+              value={email}
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              value={password}
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button onClick={handleSignIn}>Login</button>
           </form>
         </div>
         <div className="overlay-container">
