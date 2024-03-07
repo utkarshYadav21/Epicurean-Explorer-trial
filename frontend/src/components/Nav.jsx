@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import "../css/users.css";
 import { Link, useNavigate } from "react-router-dom";
+import { FaRegHeart } from "react-icons/fa";
+import { FiShoppingCart } from "react-icons/fi";
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -32,8 +34,8 @@ const Nav = () => {
             </li>
           </ul>
           <div className="right-section">
-            <Link to="/favourites">Favourites</Link>
-            <Link to="/shopping-bag">Shopping Bag</Link>
+            <Link to="/favourites" style={{fontSize: "28px",marginRight:"10px"}} ><FaRegHeart /></Link>
+            <Link to="/shopping-bag" style={{fontSize: "28px",marginRight:"10px"}} ><FiShoppingCart /></Link>
             <Link onClick={logout} to="/">
               Logout
             </Link>

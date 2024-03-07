@@ -20,7 +20,7 @@ span {
 }
 
 .intro-des {
-    width: 900px;
+    width: 1000px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
@@ -42,4 +42,40 @@ span {
     font-size: 1em;
     height: 50px;
     width: 775px;
+}
+.adopt-btn{
+    border-radius: 36px;
+    background: #a99958;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.adopt-div{
+    width: 1200px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+.adopt-content{
+    margin-top: 8px;
+    width: 750px;
+}
+.adopt-img{
+    height: 200px;
+    border-radius: 30px;
+}
+.outro-img{
+    border-radius: 30px;
+    width: 300px;
+}
+.giveaway-div{
+    width: 920px;
+    text-align: right;
+    margin-left: 570px;
+    margin-top: 80px;
+}
+.giveaway-btn{
+    position: absolute;
+    right: 230px;
+    background: #a99958;
+    cursor: pointer;
 }
