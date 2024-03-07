@@ -6,6 +6,7 @@ import RecipeCardList from "./components/RecipeCardList";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
 import Contact from "./components/Contact/Contact";
+import  Footer from "./components/Footer";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/signup" element={<Users />} />
           <Route path="/contactus" element= {<Contact/>} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
