@@ -60,7 +60,7 @@ exports.deletefav = catchasync(async (req,res,next) => {
       user.favrecipes.splice(favRecipeIndex, 1);
 
       // Save the updated user
-      await user.save();
+      await user.save({validateBeforeSave : false});
 
       return res.status(200).json({
         status: 'Success',
