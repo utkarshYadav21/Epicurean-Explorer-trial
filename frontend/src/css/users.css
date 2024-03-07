@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-* {
-  box-sizing: border-box;
-}
+
 .user-container{
   display: flex;
   align-items: center;
@@ -228,6 +226,7 @@ input {
   height: 40px;
   width: 40px;
 }
+
 .navbar-container {
   color: black;
   background-color: white;
@@ -313,4 +312,4 @@ input {
 
 .right-section a:hover {
   opacity: 0.8; 
-}
+} 
