@@ -16,7 +16,7 @@ app.use('/api/v1/cart',cartRouter);
 
 app.all('*',(req,res,next)=>{
 console.log('inside the app .js global error handler')
-    next(new AppError('The page hyou are trying to acces do not exist',404))
+    next(new AppError('The page you are trying to acces do not exist',404))
 })
 
 app.use(globalerrorhandler)
