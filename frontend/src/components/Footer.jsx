@@ -56,9 +56,9 @@ const Footer = () => {
         </div>
         <div className="footer-top-right">
           <h3>Quick Links</h3>
-          <a>Home</a>
-          <a>Recipes</a>
-          <a>ContactUs</a>
+          <a href="/">Home</a>
+          <a href="/recipe">Recipes</a>
+          <a href="contactus">ContactUs</a>
         </div>
       </div>
       <hr />
