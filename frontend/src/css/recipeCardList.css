@@ -56,7 +56,9 @@ img {
 .card__container {
     display: grid;
     row-gap: 3.5rem;
-    width: 100%; /* Set the width to 100% */
+    margin: 0 auto; 
+    max-width: 1200px; 
+    padding: 0 20px;
 }
 
 .card__article {

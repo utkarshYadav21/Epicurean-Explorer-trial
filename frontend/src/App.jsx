@@ -5,6 +5,7 @@ import RecipeCard from "./components/RecipeCard";
 import RecipeCardList from "./components/RecipeCardList";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<Users />} />
           <Route path="/signup" element={<Users />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
