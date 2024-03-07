@@ -28,7 +28,7 @@ const Nav = () => {
               <Link to="/recipe">Recipes</Link>
             </li>
             <li>
-              <Link to="/donate">
+              <Link to="/contactus">
                 Contact Us
               </Link>
             </li>
@@ -55,7 +55,7 @@ const Nav = () => {
               <Link to="/recipe">Recipe</Link>
             </li>
             <li>
-              <Link to="/contact-us">Contact Us</Link>
+              <Link to="/contactus">Contact Us</Link>
             </li>
           </ul>
           <div className="right-section">

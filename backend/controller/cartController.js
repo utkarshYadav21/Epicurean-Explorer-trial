@@ -113,19 +113,19 @@ exports.deleteRecipe = catchasync(async(req,res,next) =>{
     if(!cart){
         return next(new AppError("Cart for this user cannot be found",404))
     }
-    const cartItemIndex = cart.cartItem.findIndex((item) => item.recipename === recipeNameToDelete);
+    const cartItemIndex = cart.cartItem.findIndex((item) => item.recipename === recipetodel);
 
     if (cartItemIndex !== -1) {
       // Recipe found in the cart, remove it from the array
       const deletedRecipe = cart.cartItem.splice(cartItemIndex, 1)[0];
 
       // Save the updated cart
-      await cart.save();
+      await cart.save({validateBeforeSave : false});
 
       return res.status(200).json({
         status: 'Success',
         message: 'Recipe deleted from the cart successfully.',
-        userId: userId,
+        userId: userid,
         deletedRecipe: deletedRecipe,
       });
     } else {
