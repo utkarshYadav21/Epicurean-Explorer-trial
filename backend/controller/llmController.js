@@ -35,17 +35,19 @@ console.log(recipeString);
     };
       
     
-    const prompt = `Convert the following instructions into easy stepwise instructions: ${recipeString} give direct html code using list and without \\n  for e.g STEP-1 : cook the food <br> STEP-2 : boil it`;
+    const prompt = `Convert the following instructions into easy stepwise instructions: ${recipeString} give direct html code using list and without \\n  for e.g STEP-1 : cook the food <br> STEP-2 : boil it , also cover the text like STEP-1 in <b> tag `;
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const restext = response.text()
     console.log(response.text());
 
+    const finalHTMLinstruction = restext.replace(/\n/g, ' ');
+
 
 
     res.status(201).json({
         status : "success",
-        response : restext
+        response : finalHTMLinstruction
     })
 
 })
