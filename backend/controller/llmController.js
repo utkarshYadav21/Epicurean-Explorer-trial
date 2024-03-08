@@ -32,15 +32,13 @@ console.log(recipeString);
   
     if(!recipeString){
         return next (new AppError("No Instructions were fetched from api",404))
-    }
-;
+    };
       
     
-    const prompt = `Convert the following cooking instructions intoo easily understandable stepwise instructions: ${recipeString} and give the output in html representation using tags such as <b>,<br>,<li> and dont use \\n   `;
-    
+    const prompt = `Convert the following instructions into easy stepwise instructions: ${recipeString} give direct html code using list and without \\n  for e.g STEP-1 : cook the food <br> STEP-2 : boil it`;
     const result = await model.generateContent(prompt);
-    const instructions = await result.response;
-    const restext = instructions.text()
+    const response = await result.response;
+    const restext = response.text()
     console.log(response.text());
 
 
