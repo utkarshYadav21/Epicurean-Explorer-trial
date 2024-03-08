@@ -18,56 +18,36 @@ const recipeid = req.body.recipeid
 let config = {
     method : 'GET',
     url : `https://apis-new.foodoscope.com/recipe/${recipeid}`,
-    Headers : {
+    headers : {
         'content-type' : 'application/json',
         'Authorization' : `Bearer ${process.env.RECIPE_API_KEY}`
     }
 }
 
 const recipeinfo = await axios(config);
-const stringifiedData = recipeinfo.data;
-console.log(stringifiedData);
-// const recipedata = JSON.stringify(recipeinfo.data.payload.instructions)
-
-// console.log(recipedata)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // const query = req.body.prompt   
-    // if(!query){
-    //     return next (new AppError("No Instructions were fetched from api",404))
-    // }
-
-    //   const wrappedProcedureString = `"""${query.join("\n")}"""`;
-      
-    //   console.log(wrappedProcedureString);
+const stringifiedData = recipeinfo.data.payload.instructions;
+//console.log(stringifiedData);
+const recipeString = stringifiedData.join(' ');
+console.log(recipeString);
+  
+    if(!recipeString){
+        return next (new AppError("No Instructions were fetched from api",404))
+    }
+;
       
     
-    // const prompt = `Convert the following cooking instructions intoo easily understandable stepwise instructions: ${wrappedProcedureString} and give the output in html representation using tags such as <b>,<br>,<li> and dont use \\n   `;
+    const prompt = `Convert the following cooking instructions intoo easily understandable stepwise instructions: ${recipeString} and give the output in html representation using tags such as <b>,<br>,<li> and dont use \\n   `;
     
-    // const result = await model.generateContent(prompt);
-    // const response = await result.response;
-    // const restext = response.text()
-    // console.log(response.text());
+    const result = await model.generateContent(prompt);
+    const instructions = await result.response;
+    const restext = instructions.text()
+    console.log(response.text());
 
 
 
     res.status(201).json({
         status : "success",
-        //response : 
+        response : restext
     })
 
 })
