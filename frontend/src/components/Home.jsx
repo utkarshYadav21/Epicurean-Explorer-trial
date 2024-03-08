@@ -119,13 +119,10 @@ const Home = () => {
       <div className="page-container">
         <div className="intro-container">
           <h1 className="intro">
-            Search among <span className="quantity">1500</span> recipes
+            Explore more than <br></br> <span className="quantity">118,000</span> recipes
           </h1>
           <p className="intro-des">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen b
+           <i>"Dive into the sea of numerous delicious recipes , get a cloth ready to <br></br>wipe out the water dropping from your mouth"</i>
           </p>
           <div className="searching">
             <div className="search-div">
@@ -165,30 +162,33 @@ const Home = () => {
             </div>
             {selectedImage && (
               <div className="selected-image-div">
-                <div style={{ display: "flex" }}>
+                <div className = "uploaded-image-container">
+                  
+                  <IoCloseCircleOutline
+                    onClick={handleImageRemove}
+                    style={{
+                      fontSize: "28px",
+                      margin: "0px 10px 0px 10px",
+                      cursor: "pointer",
+                      marginTop: "5px",
+                      color: "black",
+                    }}
+                  />
                   <img
                     src={URL.createObjectURL(selectedImage)}
                     alt="Uploaded"
                     className="uploaded-image"
                   />
-                  <IoCloseCircleOutline
-                    onClick={handleImageRemove}
-                    style={{
-                      fontSize: "28px",
-                      marginLeft: "13px",
-                      cursor: "pointer",
-                      marginTop: "5px",
-                      color: "red",
-                    }}
-                  />
+                  <p className="selected-image-name">{selectedImage.name}</p>
                 </div>
-                <p className="selected-image-name">{selectedImage.name}</p>
+                
               </div>
             )}
           </div>
-          <div className="adopt-div">
+        </div>
+        <div className="adopt-div-r">
             <div>
-              <h3 className="adopt-head">Welcome to Pet Palace</h3>
+              <h3 className="adopt-head">Just Snap it! , Search it!</h3>
               <p className="adopt-content">
                 Glad that you care for animals. We make sure you will not repent
                 your decision of adopting a pet. Embrace joy and companionship
@@ -196,14 +196,14 @@ const Home = () => {
                 lasting impact on a furry friend's life.
               </p>
               <button className="adopt-btn">
-                <Link to="/adopt">Adopt</Link>
+                <Link to="/adopt">Upload</Link>
               </button>
             </div>
           </div>
           <div className="giveaway-div">
-            <div>
-              <h3 className="giveaway-head">
-                If you can't take care of your pet, we will!
+            <div className="giveaway-div-in">
+              <h3 className="adopt-head">
+                Tired of the same meal on repeat?,<br></br> Try something Different!
               </h3>
               <p className="giveaway-content">
                 Whether you're unable to care for your pet or you simply want to
@@ -211,11 +211,11 @@ const Home = () => {
                 world of difference. Join us in creating happier tails!
               </p>
               <button className="giveaway-btn">
-                <Link to="/giveaway">Giveaway</Link>
+                <Link to="/giveaway">Search</Link>
               </button>
             </div>
           </div>
-        </div>
+          
         <div
           className="top-recipes"
           id="top-recipes-section"

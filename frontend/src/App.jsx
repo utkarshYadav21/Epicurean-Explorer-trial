@@ -12,6 +12,8 @@ import RecipeProfile from "./components/RecipeProfile";
 import Ingredients from "./components/Ingredients/Ingredients";
 import Favorites from "./components/Favourites";
 import Cart from "./components/cart";
+import SearchRecipeByRegion from "./components/RecipeByRegion/SearchRecipeByRegion";
+
 function App() {
   return (
     <div className="full-container">
@@ -27,6 +29,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/recipe/:id" element={<RecipeProfile />} />
           <Route path="/recipeIns/:id" element={<Ingredients />} />
+          <Route path="/recipe1" element={<SearchRecipeByRegion />}/>
         </Routes>
         <Footer />
       </BrowserRouter>
