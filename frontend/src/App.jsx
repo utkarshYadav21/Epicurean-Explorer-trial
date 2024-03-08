@@ -13,6 +13,7 @@ import Ingredients from "./components/Ingredients/Ingredients";
 import Favorites from "./components/Favourites";
 import Cart from "./components/cart";
 import SearchRecipeByRegion from "./components/RecipeByRegion/SearchRecipeByRegion";
+import SubRegion from "./components/SubRegion";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/recipe" element={<SearchRecipeByRegion />}/>
           <Route path="/recipe/:id" element={<RecipeProfile />} />
           <Route path="/recipeIns/:id" element={<Ingredients />} />
+          <Route path="/recipeby/:subRegion" element={<SubRegion />} />
           
         </Routes>
         <Footer />

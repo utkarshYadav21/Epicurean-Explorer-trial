@@ -111,7 +111,7 @@ const Home = () => {
       const file = event.target.files[0];
       setSelectedImage(file);
     } else {
-      console.error('No file selected or event target is undefined');
+      console.error("No file selected or event target is undefined");
     }
   };
   const handleImageRemove = () => {
@@ -201,9 +201,19 @@ const Home = () => {
                 to start making it
               </i>
             </p>
-            <input type="file" accept="image/*" style={{ display: "none" }} onChange={handleImageUpload} />
-    <button onClick={() => document.querySelector('input[type="file"]').click()}>Upload</button>
-            
+            <input
+              type="file"
+              accept="image/*"
+              style={{ display: "none" }}
+              onChange={handleImageUpload}
+            />
+            <button
+              onClick={() =>
+                document.querySelector('input[type="file"]').click()
+              }
+            >
+              Upload
+            </button>
           </div>
         </div>
         <div className="giveaway-div">
