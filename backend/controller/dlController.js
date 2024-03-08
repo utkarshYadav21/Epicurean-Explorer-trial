@@ -8,6 +8,20 @@ const inference = new HfInference(INFERENCEKEY);
 
 const model = process.env.HUGGINGFACE_MODEL;
 
+function toCamelCase(str) {
+    // Replace underscores with spaces
+    let stringWithSpaces = str.replace(/_/g, '  ');
+
+    // Convert to camel case
+    let camelCaseString = stringWithSpaces.replace(/ ([a-z])/g, function (match, letter) {
+        return letter.toUpperCase();
+    });
+
+    // Handle cases where the first character is lowercase
+    camelCaseString = camelCaseString.charAt(0).toLowerCase() + camelCaseString.slice(1);
+
+    return camelCaseString;
+}
 
 exports.getrecipefromImage = catchasync (async(req,res,next) =>{
 
@@ -22,13 +36,17 @@ exports.getrecipefromImage = catchasync (async(req,res,next) =>{
       data: imageBlob,
       model: model
     });
-
-    // Log the entire result to inspect its structure
     console.log('Full Result:', result[0]);
     const predictedFood = result[0]
+    const formattedPredictedFood = toCamelCase(predictedFood.label)
+
+      console.log(formattedPredictedFood)
+
+    // Log the entire result to inspect its structure
+    
     res.status(200).json({
         status : "success",
-        data : predictedFood
+        data : formattedPredictedFood
     })
 
     // // Extract the text from the result if available

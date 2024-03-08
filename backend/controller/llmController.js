@@ -30,7 +30,7 @@ if(!recipeinfo.data.payload.ingredients){
     return next(new AppError("No ingredients Found in the payload or payload "))
 }
 const ingredientArray = recipeinfo.data.payload.ingredients.map(ingredient => ingredient.ingredient);
-console.log(ingredientArray);
+//console.log(ingredientArray);
 
 const stringifiedData = recipeinfo.data.payload.instructions;
 // //console.log(stringifiedData);
@@ -61,6 +61,23 @@ const stringifiedData = recipeinfo.data.payload.instructions;
     //returning the instruction in the html code format and the ingredients in the array format
 
 })
+
+
+exports.generateAIDescription = catchasync(async (req,res,next) =>{
+    const recipename = req.body.recipename
+    const prompt = `Give small description about the food ${recipename} in 2 line`
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const restext = response.text()
+
+    console.log(restext)
+
+    res.status(200).json({
+        status : "success",
+        description : restext
+    })
+})
+
 
 
 
