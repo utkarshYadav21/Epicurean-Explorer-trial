@@ -25,30 +25,40 @@ let config = {
 }
 
 const recipeinfo = await axios(config);
+
+if(!recipeinfo.data.payload.ingredients){
+    return next(new AppError("No ingredients Found in the payload or payload "))
+}
+const ingredientArray = recipeinfo.data.payload.ingredients.map(ingredient => ingredient.ingredient);
+console.log(ingredientArray);
+
 const stringifiedData = recipeinfo.data.payload.instructions;
-//console.log(stringifiedData);
-const recipeString = stringifiedData.join(' ');
-console.log(recipeString);
+// //console.log(stringifiedData);
+ const recipeString = stringifiedData.join(' ');
+// //console.log(recipeString);
   
     if(!recipeString){
         return next (new AppError("No Instructions were fetched from api",404))
-    }
-;
+    };
       
     
-    const prompt = `Convert the following cooking instructions intoo easily understandable stepwise instructions: ${recipeString} and give the output in html representation using tags such as <b>,<br>,<li> and dont use \\n   `;
-    
+    const prompt = `Convert the following instructions into easy stepwise instructions: ${recipeString} give direct html code using list and without \\n  for e.g STEP-1 : cook the food <br> STEP-2 : boil it , also cover the text like STEP-1 in <b> tag `;
     const result = await model.generateContent(prompt);
-    const instructions = await result.response;
-    const restext = instructions.text()
-    console.log(response.text());
+    const response = await result.response;
+    const restext = response.text()
+    //console.log(response.text());
+
+    const finalHTMLinstruction = restext.replace(/\n/g, ' ');
 
 
 
     res.status(201).json({
         status : "success",
-        response : restext
+        instructions : finalHTMLinstruction,
+        ingredients : ingredientArray
     })
+
+    //returning the instruction in the html code format and the ingredients in the array format
 
 })
 
