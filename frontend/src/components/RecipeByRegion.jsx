@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React,{useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
-import RecipeCard from "./RecipeCard";
 
-const SubRegion = () => {
+const RecipeByRegion = () => {
   const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
   const [recipes, setRecipes] = useState([]);
-  const { subRegion } = useParams();
-  console.log(subRegion);
+  const { Region } = useParams();
+  console.log(Region);
   useEffect(() => {
-    recipeBySubRegion();
+    recipeByRegion();
   }, []);
-  const recipeBySubRegion = async () => {
+  const recipeByRegion = async () => {
     let res = await fetch(
-      `https://apis-new.foodoscope.com/recipe-search/sub-regions?searchText=${subRegion}&pageSize=10`,
+      `https://apis-new.foodoscope.com/recipe-search/sub-regions?searchText=${Region}&pageSize=10`,
       {
         method: "get",
         headers: {
@@ -41,4 +40,4 @@ const SubRegion = () => {
   );
 };
 
-export default SubRegion;
+export default RecipeByRegion;

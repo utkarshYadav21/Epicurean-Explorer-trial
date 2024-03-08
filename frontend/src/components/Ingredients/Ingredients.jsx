@@ -9,7 +9,7 @@ const Ingredients = () => {
   const [instructionList, setInstructionList] = useState([]);
   const [selectedIngredient, setSelectedIngredient] = useState("");
   const [description, setDescription] = useState("");
-  const apiUrl = "R8OO00YzjtyAMfp-O1lpcxhdPuubeMD_pM92fOE8t7on5uln";
+  const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
   useEffect(() => {
     console.log(selectedIngredient);
     setIngredientToCart();
@@ -34,14 +34,15 @@ const Ingredients = () => {
   //   des = await des.json();
   //   setDescription(des.description);
   // };
+
   const setIngredientToCart = async () => {
     console.log(selectedIngredient);
     let res = await fetch("http://127.0.0.1:8000/api/v1/cart", {
       method: "post",
-      body: JSON.stringify({ recipename: RecipeTitle, selectedIngredient }),
+      body: JSON.stringify({ recipename: RecipeTitle, ingredient:selectedIngredient }),
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
       },
     });
     res = await res.json();
@@ -79,6 +80,7 @@ const Ingredients = () => {
   };
   getRecipe();
   getIngredients();
+
   return (
     <div className={styles.galileoDesign}>
       <main className={styles.depth0Frame0}>
