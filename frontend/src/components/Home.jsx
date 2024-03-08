@@ -8,9 +8,9 @@ import RecipeName from "./RecipeName";
 
 const Home = () => {
   const navigate = useNavigate("");
-  const apiUrl = "Qdjx2FhUGUxlKdRxwRBAd6TNSjB__ryn-BZd2K4gg5XTj0J1";
+  const apiUrl = "R8OO00YzjtyAMfp-O1lpcxhdPuubeMD_pM92fOE8t7on5uln";
   const [searchRecipe, setSearchRecipe] = useState("");
-  const [description,setDescription]=useState("")
+  const [description, setDescription] = useState("");
   const [dayRecipe, setDayRecipe] = useState("");
   const [dayRecipeTitle, setDayRecipeTitle] = useState("");
   const [dayRecipeImage, setDayRecipeImage] = useState("");
@@ -54,7 +54,7 @@ const Home = () => {
       alert("Please search atleast one thing.");
     }
   };
-  
+
   const getTopRecipes = async () => {
     let recipe = await fetch(
       "https://apis-new.foodoscope.com/recipe/recipeOftheDay",
@@ -77,6 +77,7 @@ const Home = () => {
       alert("no recipe of the day found");
     }
   };
+
   const handleFavourite = async () => {
     let dayRecipeId = dayRecipe.payload.Recipe_id;
     let favouriteRes = await fetch("http://127.0.0.1:8000/api/v1/fav", {
@@ -90,19 +91,22 @@ const Home = () => {
     favouriteRes = await favouriteRes.json();
     console.log(favouriteRes);
   };
-  const getDescription=async()=>{
-    console.log(dayRecipeTitle)
-    let des=await fetch("http://127.0.0.1:8000/api/v1/llmmodel/description",{
-      method:'post',
-      body:JSON.stringify({recipename:dayRecipeTitle}),
-      headers:{
-        'Content-Type':'application/json'
-      }
-    })
-    des=await des.json();
+  const getDescription = async () => {
+    console.log(dayRecipeTitle);
+    let des = await fetch("http://127.0.0.1:8000/api/v1/llmmodel/description", {
+      method: "post",
+      body: JSON.stringify({ recipename: dayRecipeTitle }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    des = await des.json();
+    console.log(des)
     console.log(des.description);
     setDescription(des.description);
-  }
+  };
+
+
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     setSelectedImage(file);

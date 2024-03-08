@@ -23,7 +23,7 @@ function App() {
           <Route path="/signup" element={<Users />} />
           <Route path="/contactus" element= {<Contact/>} />
           <Route path="/ingredients" element={<Ingredients/>}/>
-          <Route path="/favorites" element={<Favorites />}/>
+          <Route path="/favourites" element={<Favorites />}/>
           <Route path="/cart" element={<Cart />} />
           <Route path="/recipe/:id" element={<RecipeProfile />} />
           <Route path="/recipeIns/:id" element={<Ingredients />} />

@@ -17,7 +17,11 @@ span {
 }
 
 .intro-container {
-    margin-top: 40px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    background-image: url("../../images/background.png");
+    background-size: cover;
 }
 
 .intro-des {

@@ -1,14 +1,13 @@
 import React from "react";
 import "../css/recipeCard.css";
 
-const RecipeCard = () => {
+const RecipeCard = ({title,image}) => {
   return (
         <article class="card__article">
-          <img src="../../../images/landscape-1.png" alt="image" class="card__img" />
+          <img src={image} alt="image" class="card__img" />
 
           <div class="card__data">
-            <span class="card__description">Vancouver Mountains, Canada</span>
-            <h2 class="card__title">The Great Path</h2>
+            <h2 class="card__title">{title}</h2>
             <a href="#" class="card__button">
               Read More
             </a>
