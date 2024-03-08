@@ -8,7 +8,7 @@ import RecipeName from "./RecipeName";
 
 const Home = () => {
   const navigate = useNavigate("");
-  const apiUrl = "R8OO00YzjtyAMfp-O1lpcxhdPuubeMD_pM92fOE8t7on5uln";
+  const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
   const [searchRecipe, setSearchRecipe] = useState("");
   const [description, setDescription] = useState("");
   const [dayRecipe, setDayRecipe] = useState("");
