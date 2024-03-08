@@ -1,14 +1,48 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/Home.css";
 import { FaSearch } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, json } from "react-router-dom";
 import RecipeCardList from "./RecipeCardList";
 import { TbCameraShare } from "react-icons/tb";
 import { IoCloseCircleOutline } from "react-icons/io5";
+import RecipeName from "./RecipeName";
 
 const Home = () => {
+  const apiUrl="Qdjx2FhUGUxlKdRxwRBAd6TNSjB__ryn-BZd2K4gg5XTj0J1";
+  const [dayRecipe,setDayRecipe]=useState('')
+  const [dayRecipeTitle,setDayRecipeTitle]=useState('');
+  const [dayRecipeImage,setDayRecipeImage]=useState('');
   const [selectedImage, setSelectedImage] = useState(null);
-
+  useEffect(()=>{
+    getTopRecipes();
+  },[]);
+  const getTopRecipes=async()=>{
+    let recipe=await fetch("https://apis-new.foodoscope.com/recipe/recipeOftheDay",{
+      method:'get',
+      headers:{
+        'Content-Type':'application/json',
+        'Authorization':`Bearer ${apiUrl}`,
+      }
+    })
+    recipe=await recipe.json();
+    console.log(recipe);
+    setDayRecipe(recipe);
+    if(recipe.success==="true"){
+      setDayRecipeTitle(recipe.payload.Recipe_title);
+      setDayRecipeImage(recipe.payload.img_url);
+    }
+  }
+  const handleFavourite=async()=>{
+    let dayRecipeId=dayRecipe.payload.Recipe_id;
+    let favouriteRes=await fetch("http://127.0.0.1:8000/api/v1/fav",{
+      method:'post',
+      body:JSON.stringify({dayRecipeId}),
+      headers:{
+        'Content-Type':'application/json',
+        'Authorization1':`Bearer ${localStorage.getItem('jwt')}`
+      }
+    })
+  }
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     setSelectedImage(file);
@@ -123,9 +157,9 @@ const Home = () => {
           <h1
             style={{ width: "100%", textAlign: "center", marginBottom: "30px" }}
           >
-            Here are some of the top recipes used.....
+            Here is the recipe of the day.....
           </h1>
-          <RecipeCardList />
+          <RecipeName title={dayRecipeTitle} image={dayRecipeImage} />
         </div>
       </div>
     </div>
