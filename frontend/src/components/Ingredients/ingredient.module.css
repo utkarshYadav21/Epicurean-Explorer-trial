@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700&display=swap");
+
 body {
   margin: 0px;
   line-height: normal;
 }
+
 :root {
   /* fonts */
   --font-epilogue: Epilogue;
@@ -46,9 +48,11 @@ body {
   width: 16px;
   height: 16px;
 }
+
 .vector1 {
   z-index: 1;
 }
+
 .depth8Frame0 {
   position: absolute;
   top: -1604.5px;
@@ -57,6 +61,7 @@ body {
   height: 12.4px;
   display: none;
 }
+
 .depth6Frame0 {
   width: 16px;
   height: 16px;
@@ -64,6 +69,7 @@ body {
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .depth6Frame0Wrapper {
   display: flex;
   flex-direction: column;
@@ -71,12 +77,14 @@ body {
   justify-content: flex-start;
   padding: var(--padding-xs) var(--padding-base) 0 0;
 }
+
 .cooking101 {
   position: relative;
   letter-spacing: -0.27px;
   line-height: 22.5px;
   white-space: nowrap;
 }
+
 .cooking101Wrapper {
   display: flex;
   flex-direction: column;
@@ -84,6 +92,7 @@ body {
   justify-content: flex-start;
   padding: 8.799999999999955px 32px 0 0;
 }
+
 .depth7Frame0,
 .vector01 {
   position: absolute;
@@ -92,12 +101,14 @@ body {
   width: 24px;
   height: 24px;
 }
+
 .depth7Frame0 {
   top: -1600.5px;
   left: 44.2px;
   width: 19px;
   height: 20px;
 }
+
 .depth6Frame01 {
   width: 24px;
   height: 24px;
@@ -105,18 +116,21 @@ body {
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .depth5Frame0 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .search {
   align-self: stretch;
   position: relative;
   line-height: 24px;
   white-space: nowrap;
 }
+
 .depth5Frame1,
 .depth6Frame02 {
   display: flex;
@@ -124,12 +138,15 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth6Frame02 {
   align-self: stretch;
 }
+
 .depth5Frame1 {
   width: 192px;
 }
+
 .depth4Frame1 {
   width: 260px;
   border-radius: var(--br-xs);
@@ -144,6 +161,7 @@ body {
   font-size: var(--font-size-base);
   color: var(--color-seagreen);
 }
+
 .addRecipe {
   position: relative;
   font-size: var(--font-size-sm);
@@ -154,6 +172,7 @@ body {
   text-align: left;
   white-space: nowrap;
 }
+
 .depth5Frame01,
 .depth6Frame03,
 .depth7Frame01 {
@@ -162,11 +181,13 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth5Frame01,
 .depth6Frame03 {
   background-color: var(--color-lime);
   overflow: hidden;
 }
+
 .depth5Frame01 {
   cursor: pointer;
   border: 0;
@@ -177,6 +198,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .depth8Frame01,
 .mythicIcon {
   position: absolute;
@@ -185,12 +207,14 @@ body {
   width: 20px;
   height: 20px;
 }
+
 .depth8Frame01 {
   top: -1602.5px;
   left: -871px;
   width: 15px;
   height: 16px;
 }
+
 .depth7Frame02 {
   width: 20px;
   height: 20px;
@@ -198,17 +222,20 @@ body {
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .depth6Frame04 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth4Frame0,
 .depth5Frame11 {
   display: flex;
   flex-direction: row;
 }
+
 .depth5Frame11 {
   border-radius: var(--br-xs);
   background-color: var(--color-honeydew-100);
@@ -216,12 +243,14 @@ body {
   justify-content: center;
   padding: 10px;
 }
+
 .depth4Frame0 {
   align-self: stretch;
   align-items: flex-start;
   justify-content: flex-start;
   gap: 0 8px;
 }
+
 .depth4Frame11 {
   height: 40px;
   width: 40px;
@@ -232,6 +261,7 @@ body {
   object-fit: cover;
   min-height: 40px;
 }
+
 .depth2Frame0,
 .depth3Frame1 {
   box-sizing: border-box;
@@ -240,12 +270,14 @@ body {
   align-items: flex-start;
   max-width: 100%;
 }
+
 .depth3Frame1 {
   align-self: stretch;
   justify-content: flex-end;
   padding: 0 0 0 539px;
   gap: 0 32px;
 }
+
 .depth2Frame0 {
   height: 65px;
   border-bottom: 1px solid #e6e8eb;
@@ -259,6 +291,7 @@ body {
   color: var(--color-gray);
   font-family: var(--font-epilogue);
 }
+
 .depth6Frame05 {
   height: 280px;
   width: 416.7px;
@@ -270,6 +303,7 @@ body {
   min-height: 280px;
   max-width: 100%;
 }
+
 .grilledSalmonWith {
   margin: 0;
   width: 467.2px;
@@ -282,6 +316,7 @@ body {
   display: inline-block;
   max-width: 100%;
 }
+
 .depth10Frame0,
 .depth9Frame0 {
   align-self: stretch;
@@ -291,9 +326,11 @@ body {
   justify-content: flex-start;
   max-width: 100%;
 }
+
 .depth9Frame0 {
   min-height: 120px;
 }
+
 .thisGrilledSalmon {
   width: 467.8px;
   position: relative;
@@ -301,6 +338,7 @@ body {
   display: inline-block;
   max-width: 100%;
 }
+
 .depth10Frame01,
 .depth9Frame1 {
   align-self: stretch;
@@ -310,13 +348,16 @@ body {
   justify-content: flex-start;
   max-width: 100%;
 }
+
 .depth9Frame1 {
   min-height: 72px;
   font-size: var(--font-size-base);
 }
+
 .depth8Frame02 {
   gap: 8px 0;
 }
+
 .depth7Frame03,
 .depth8Frame02 {
   align-self: stretch;
@@ -326,6 +367,7 @@ body {
   justify-content: flex-start;
   max-width: 100%;
 }
+
 .save {
   position: relative;
   font-size: var(--font-size-base);
@@ -335,6 +377,7 @@ body {
   color: var(--color-gray);
   text-align: left;
 }
+
 .depth10Frame02,
 .depth8Frame03,
 .depth9Frame01 {
@@ -343,11 +386,13 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth8Frame03,
 .depth9Frame01 {
   background-color: var(--color-lime);
   overflow: hidden;
 }
+
 .depth8Frame03 {
   cursor: pointer;
   border: 0;
@@ -357,6 +402,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .print {
   position: relative;
   font-size: var(--font-size-base);
@@ -367,6 +413,7 @@ body {
   text-align: left;
   white-space: nowrap;
 }
+
 .depth10Frame03,
 .depth9Frame02 {
   display: flex;
@@ -374,15 +421,18 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth9Frame02 {
   background-color: var(--color-honeydew-100);
   overflow: hidden;
 }
+
 .depth8Frame1,
 .frameSeasoning {
   display: flex;
   flex-direction: row;
 }
+
 .depth8Frame1 {
   cursor: pointer;
   border: 0;
@@ -393,11 +443,13 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .frameSeasoning {
   align-items: flex-start;
   justify-content: flex-start;
   gap: 0 12px;
 }
+
 .depth6Frame0Parent,
 .frameGrilling,
 .grilledSalmonWithAvocadoSaInner {
@@ -406,26 +458,32 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
   max-width: 100%;
+  cursor: pointer;
 }
+
 .frameGrilling {
   flex: 1;
   flex-direction: column;
   gap: 32px 0;
   min-width: 311px;
 }
+
 .depth6Frame0Parent,
 .grilledSalmonWithAvocadoSaInner {
   flex-direction: row;
 }
+
 .depth6Frame0Parent {
   flex: 1;
   gap: 0 32px;
 }
+
 .grilledSalmonWithAvocadoSaInner {
   align-self: stretch;
   padding: 0 var(--padding-base);
   box-sizing: border-box;
 }
+
 .jumpToRecipe {
   position: relative;
   font-size: var(--font-size-sm);
@@ -435,6 +493,7 @@ body {
   color: var(--color-gray);
   text-align: left;
 }
+
 .depth6Frame06,
 .depth7Frame04 {
   display: flex;
@@ -442,15 +501,18 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth6Frame06 {
   background-color: var(--color-honeydew-100);
   overflow: hidden;
 }
+
 .depth4Frame12,
 .depth5Frame02 {
   display: flex;
   flex-direction: row;
 }
+
 .depth5Frame02 {
   cursor: pointer;
   border: 0;
@@ -462,6 +524,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .depth4Frame12 {
   width: 960px;
   height: 64px;
@@ -470,11 +533,13 @@ body {
   padding: var(--padding-xs) var(--padding-base);
   box-sizing: border-box;
 }
+
 .ingredients {
   position: relative;
   letter-spacing: -0.27px;
   line-height: 22.5px;
 }
+
 .depth4Frame2,
 .depth5Frame03,
 .depth6Frame07 {
@@ -483,12 +548,14 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth4Frame2 {
   width: 960px;
   flex-direction: row;
   padding: var(--padding-base) var(--padding-base) var(--padding-5xs);
   box-sizing: border-box;
 }
+
 .depth9Frame03,
 .depthFrameDepthFrameDepth {
   position: absolute;
@@ -497,12 +564,14 @@ body {
   width: 24px;
   height: 24px;
 }
+
 .depth9Frame03 {
   top: -2147.5px;
   left: 91px;
   width: 18px;
   height: 18px;
 }
+
 .depth8Frame04 {
   width: 24px;
   height: 24px;
@@ -510,22 +579,26 @@ body {
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .depth7Frame05 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth6Frame08 {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
+
 .salmonFillets {
   position: relative;
   line-height: 24px;
 }
+
 .depth5Frame04,
 .depth6Frame1,
 .depth7Frame06 {
@@ -534,12 +607,14 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth5Frame04 {
   align-self: stretch;
   flex-direction: row;
   padding: var(--padding-xs) 0;
   gap: 0 12px;
 }
+
 .depth9Frame04,
 .vector02 {
   position: absolute;
@@ -548,12 +623,14 @@ body {
   width: 24px;
   height: 24px;
 }
+
 .depth9Frame04 {
   top: -2195.5px;
   left: 91px;
   width: 18px;
   height: 18px;
 }
+
 .depth8Frame05 {
   width: 24px;
   height: 24px;
@@ -561,22 +638,26 @@ body {
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .depth7Frame07 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth6Frame09 {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
+
 .oliveOil {
   position: relative;
   line-height: 24px;
 }
+
 .depth5Frame12,
 .depth6Frame11,
 .depth7Frame08 {
@@ -585,12 +666,14 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth5Frame12 {
   align-self: stretch;
   flex-direction: row;
   padding: var(--padding-xs) 0;
   gap: 0 12px;
 }
+
 .depth9Frame05,
 .vector03 {
   position: absolute;
@@ -599,12 +682,14 @@ body {
   width: 24px;
   height: 24px;
 }
+
 .depth9Frame05 {
   top: -2243.5px;
   left: 91px;
   width: 18px;
   height: 18px;
 }
+
 .depth8Frame06 {
   width: 24px;
   height: 24px;
@@ -612,22 +697,26 @@ body {
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .depth7Frame09 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth6Frame010 {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
+
 .salt {
   position: relative;
   line-height: 24px;
 }
+
 .depth5Frame2,
 .depth6Frame12,
 .depth7Frame010 {
@@ -636,12 +725,14 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth5Frame2 {
   align-self: stretch;
   flex-direction: row;
   padding: var(--padding-xs) 0;
   gap: 0 11.1px;
 }
+
 .depth9Frame06,
 .vector04 {
   position: absolute;
@@ -650,12 +741,14 @@ body {
   width: 24px;
   height: 24px;
 }
+
 .depth9Frame06 {
   top: -2291.5px;
   left: 91px;
   width: 18px;
   height: 18px;
 }
+
 .depth8Frame07 {
   width: 24px;
   height: 24px;
@@ -663,22 +756,26 @@ body {
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .depth7Frame011 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth6Frame011 {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
+
 .blackPepper {
   position: relative;
   line-height: 24px;
 }
+
 .depth5Frame3,
 .depth6Frame13,
 .depth7Frame012 {
@@ -687,12 +784,14 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth5Frame3 {
   align-self: stretch;
   flex-direction: row;
   padding: var(--padding-xs) 0;
   gap: 0 12px;
 }
+
 .depth9Frame07,
 .vector05 {
   position: absolute;
@@ -701,12 +800,14 @@ body {
   width: 24px;
   height: 24px;
 }
+
 .depth9Frame07 {
   top: -2339.5px;
   left: 91px;
   width: 18px;
   height: 18px;
 }
+
 .depth8Frame08 {
   width: 24px;
   height: 24px;
@@ -714,22 +815,26 @@ body {
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .depth7Frame013 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth6Frame012 {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
+
 .avocado {
   position: relative;
   line-height: 24px;
 }
+
 .depth5Frame4,
 .depth6Frame14,
 .depth7Frame014 {
@@ -738,12 +843,14 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth5Frame4 {
   align-self: stretch;
   flex-direction: row;
   padding: var(--padding-xs) 0;
   gap: 0 12px;
 }
+
 .depth9Frame08,
 .vector06 {
   position: absolute;
@@ -752,12 +859,14 @@ body {
   width: 24px;
   height: 24px;
 }
+
 .depth9Frame08 {
   top: -2387.5px;
   left: 91px;
   width: 18px;
   height: 18px;
 }
+
 .depth8Frame09 {
   width: 24px;
   height: 24px;
@@ -765,22 +874,26 @@ body {
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .depth7Frame015 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth6Frame013 {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
+
 .redOnion {
   position: relative;
   line-height: 24px;
 }
+
 .depth5Frame5,
 .depth6Frame15,
 .depth7Frame016 {
@@ -789,12 +902,14 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth5Frame5 {
   align-self: stretch;
   flex-direction: row;
   padding: var(--padding-xs) 0;
   gap: 0 12px;
 }
+
 .depth9Frame09,
 .vector07 {
   position: absolute;
@@ -803,12 +918,14 @@ body {
   width: 24px;
   height: 24px;
 }
+
 .depth9Frame09 {
   top: -2435.5px;
   left: 91px;
   width: 18px;
   height: 18px;
 }
+
 .depth8Frame010 {
   width: 24px;
   height: 24px;
@@ -816,26 +933,31 @@ body {
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .depth7Frame017 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth6Frame014 {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
+
 .freshParsley {
   position: relative;
   line-height: 24px;
 }
+
 .depth6Frame16,
 .depth7Frame018 {
   flex-direction: column;
 }
+
 .depth4Frame3,
 .depth5Frame6,
 .depth6Frame16,
@@ -844,12 +966,14 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth5Frame6 {
   align-self: stretch;
   flex-direction: row;
   padding: var(--padding-xs) 0;
   gap: 0 12px;
 }
+
 .depth4Frame3 {
   width: 960px;
   flex-direction: column;
@@ -857,11 +981,13 @@ body {
   box-sizing: border-box;
   font-size: var(--font-size-base);
 }
+
 .instructions {
   position: relative;
   letter-spacing: -0.27px;
   line-height: 22.5px;
 }
+
 .depth4Frame4,
 .depth5Frame05,
 .depth6Frame015,
@@ -871,20 +997,24 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth4Frame4,
 .recipejumpframe {
   flex-direction: row;
   box-sizing: border-box;
 }
+
 .depth4Frame4 {
   flex: 1;
   padding: var(--padding-base) var(--padding-base) var(--padding-5xs);
   max-width: 100%;
 }
+
 .recipejumpframe {
   width: 960px;
   padding: 0 0 var(--padding-base);
 }
+
 .createSalsaIcon,
 .depth8Frame011 {
   position: absolute;
@@ -893,12 +1023,14 @@ body {
   width: 24px;
   height: 24px;
 }
+
 .depth8Frame011 {
   top: -2550px;
   left: 75px;
   width: 5px;
   height: 17px;
 }
+
 .depth7Frame019 {
   width: 24px;
   height: 24px;
@@ -906,6 +1038,7 @@ body {
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .depth6Frame016 {
   align-self: stretch;
   display: flex;
@@ -913,12 +1046,14 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .seasonTheSalmon {
   width: 96.7px;
   position: relative;
   line-height: 20px;
   display: inline-block;
 }
+
 .depth7Frame020,
 .depth8Frame012 {
   align-self: stretch;
@@ -927,15 +1062,18 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth7Frame020 {
   height: 40px;
 }
+
 .drizzleTheSalmon {
   width: 128.3px;
   position: relative;
   line-height: 21px;
   display: inline-block;
 }
+
 .depth8Frame013 {
   align-self: stretch;
   display: flex;
@@ -943,12 +1081,14 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth7Frame1 {
   align-self: stretch;
   flex: 1;
   font-size: var(--font-size-sm);
   color: var(--color-seagreen);
 }
+
 .depth5Frame06,
 .depth6Frame17,
 .depth7Frame1 {
@@ -957,11 +1097,13 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth6Frame17 {
   align-self: stretch;
   height: 128px;
   gap: 4px 0;
 }
+
 .depth5Frame06 {
   flex: 1;
   border-radius: var(--br-5xs);
@@ -973,6 +1115,7 @@ body {
   min-width: 172px;
   max-width: 176px;
 }
+
 .depth8Frame014,
 .vector08 {
   position: absolute;
@@ -981,12 +1124,14 @@ body {
   width: 24px;
   height: 24px;
 }
+
 .depth8Frame014 {
   top: -2550px;
   left: -113px;
   width: 9px;
   height: 17px;
 }
+
 .depth7Frame021 {
   width: 24px;
   height: 24px;
@@ -994,6 +1139,7 @@ body {
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .depth6Frame017 {
   align-self: stretch;
   display: flex;
@@ -1001,12 +1147,14 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .preheatGrillTo {
   width: 126.5px;
   position: relative;
   line-height: 20px;
   display: inline-block;
 }
+
 .depth8Frame015 {
   align-self: stretch;
   display: flex;
@@ -1014,10 +1162,12 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth7Frame022 {
   align-self: stretch;
   flex: 1;
 }
+
 .depth5Frame13,
 .depth6Frame18,
 .depth7Frame022 {
@@ -1026,22 +1176,24 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth6Frame18 {
   align-self: stretch;
   height: 60px;
 }
+
 .depth5Frame13 {
   flex: 1;
   border-radius: var(--br-5xs);
   background-color: var(--color-mintcream);
   border: 1px solid var(--color-honeydew-200);
   box-sizing: border-box;
-  padding: var(--padding-base) var(--padding-mid) var(--padding-67xl)
-    var(--padding-mini);
+  padding: var(--padding-base) var(--padding-mid) var(--padding-67xl) var(--padding-mini);
   gap: 12px 0;
   min-width: 172px;
   max-width: 176px;
 }
+
 .depth8Frame016,
 .vector09 {
   position: absolute;
@@ -1050,12 +1202,14 @@ body {
   width: 24px;
   height: 24px;
 }
+
 .depth8Frame016 {
   top: -2550px;
   left: -301px;
   width: 18px;
   height: 14px;
 }
+
 .depth7Frame023 {
   width: 24px;
   height: 24px;
@@ -1063,6 +1217,7 @@ body {
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .depth6Frame018 {
   align-self: stretch;
   display: flex;
@@ -1070,10 +1225,12 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .grillTheSalmon {
   position: relative;
   line-height: 20px;
 }
+
 .depth5Frame21,
 .depth6Frame19,
 .depth7Frame024,
@@ -1083,24 +1240,26 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth6Frame19,
 .depth7Frame024,
 .depth8Frame017 {
   align-self: stretch;
 }
+
 .depth5Frame21 {
   flex: 1;
   border-radius: var(--br-5xs);
   background-color: var(--color-mintcream);
   border: 1px solid var(--color-honeydew-200);
   box-sizing: border-box;
-  padding: var(--padding-base) var(--padding-mid) var(--padding-base)
-    var(--padding-mini);
+  padding: var(--padding-base) var(--padding-mid) var(--padding-base) var(--padding-mini);
   gap: 12px 0;
   min-width: 172px;
   max-width: 176px;
   min-height: 198px;
 }
+
 .vector010 {
   margin: 0;
   position: absolute;
@@ -1109,6 +1268,7 @@ body {
   width: 24px;
   height: 24px;
 }
+
 .depth8Frame018 {
   position: absolute;
   top: -2550px;
@@ -1116,6 +1276,7 @@ body {
   width: 18px;
   height: 18px;
 }
+
 .depth7Frame025 {
   width: 24px;
   height: 24px;
@@ -1123,6 +1284,7 @@ body {
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .depth6Frame019 {
   align-self: stretch;
   display: flex;
@@ -1130,12 +1292,14 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .makeTheAvocado {
   width: 116.7px;
   position: relative;
   line-height: 20px;
   display: inline-block;
 }
+
 .depth8Frame019 {
   align-self: stretch;
   display: flex;
@@ -1143,10 +1307,12 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth7Frame026 {
   align-self: stretch;
   flex: 1;
 }
+
 .depth5Frame31,
 .depth6Frame110,
 .depth7Frame026 {
@@ -1155,10 +1321,12 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth6Frame110 {
   align-self: stretch;
   height: 40px;
 }
+
 .depth5Frame31 {
   flex: 1;
   border-radius: var(--br-5xs);
@@ -1170,6 +1338,7 @@ body {
   min-width: 172px;
   max-width: 176px;
 }
+
 .depth8Frame020,
 .vector011 {
   position: absolute;
@@ -1178,12 +1347,14 @@ body {
   width: 24px;
   height: 24px;
 }
+
 .depth8Frame020 {
   top: -2550px;
   left: -677px;
   width: 9px;
   height: 17px;
 }
+
 .depth7Frame027 {
   width: 24px;
   height: 24px;
@@ -1191,6 +1362,7 @@ body {
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .depth6Frame020 {
   align-self: stretch;
   display: flex;
@@ -1198,25 +1370,30 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .serveTheGrilled {
   width: 139px;
   position: relative;
   line-height: 20px;
   display: inline-block;
 }
+
 .depth7Frame028,
 .depth8Frame021 {
   align-self: stretch;
   flex-direction: column;
 }
+
 .depth8Frame021 {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth7Frame028 {
   flex: 1;
 }
+
 .depth5Frame41,
 .depth6Frame111,
 .depth7Frame028,
@@ -1225,37 +1402,42 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .depth6Frame111 {
   align-self: stretch;
   height: 60px;
   flex-direction: column;
 }
+
 .depth5Frame41,
 .depthFrameDepthFrameVector {
   flex: 1;
 }
+
 .depth5Frame41 {
   border-radius: var(--br-5xs);
   background-color: var(--color-mintcream);
   border: 1px solid var(--color-honeydew-200);
   box-sizing: border-box;
   flex-direction: column;
-  padding: var(--padding-base) var(--padding-mid) var(--padding-67xl)
-    var(--padding-mini);
+  padding: var(--padding-base) var(--padding-mid) var(--padding-67xl) var(--padding-mini);
   gap: 12px 0;
   min-width: 172px;
   max-width: 176px;
 }
+
 .depthFrameDepthFrameVector {
   flex-direction: row;
   gap: 0 12px;
   max-width: 100%;
 }
+
 .depth4Frame1Parent,
 .oliveOilDrop {
   width: 960px;
   justify-content: flex-start;
 }
+
 .oliveOilDrop {
   display: flex;
   flex-direction: row;
@@ -1264,11 +1446,13 @@ body {
   box-sizing: border-box;
   font-size: var(--font-size-base);
 }
+
 .depth4Frame1Parent {
   overflow-x: auto;
   flex-direction: column;
   font-size: var(--font-size-lg);
 }
+
 .depth4Frame1Parent,
 .frameSave,
 .grilledSalmonWithAvocadoSa {
@@ -1276,12 +1460,14 @@ body {
   align-items: flex-start;
   max-width: 100%;
 }
+
 .grilledSalmonWithAvocadoSa {
   width: 960px;
   flex-direction: column;
   justify-content: flex-start;
   gap: 40px 0;
 }
+
 .frameSave {
   align-self: stretch;
   flex-direction: row;
@@ -1293,12 +1479,14 @@ body {
   color: var(--color-gray);
   font-family: var(--font-epilogue);
 }
+
 .depth0Frame0,
 .galileoDesign {
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
 }
+
 .depth0Frame0 {
   width: 1280px;
   background-color: var(--color-mintcream);
@@ -1308,6 +1496,7 @@ body {
   gap: 60px 0;
   max-width: 100%;
 }
+
 .galileoDesign {
   width: 100%;
   position: relative;
@@ -1315,47 +1504,58 @@ body {
   flex-direction: row;
   letter-spacing: normal;
 }
+
 @media screen and (max-width: 825px) {
   .depth3Frame1 {
     padding-left: 269px;
     box-sizing: border-box;
   }
+
   .depth6Frame05 {
     flex: 1;
   }
+
   .grilledSalmonWith {
     font-size: 38px;
     line-height: 48px;
   }
+
   .depth8Frame02 {
     align-self: stretch;
     width: auto;
   }
+
   .depth6Frame0Parent {
     flex-wrap: wrap;
   }
 }
+
 @media screen and (max-width: 675px) {
   .frameGrilling {
     gap: 16px 0;
   }
+
   .grilledSalmonWithAvocadoSa {
     gap: 20px 0;
   }
+
   .depth0Frame0 {
     gap: 30px 0;
   }
 }
+
 @media screen and (max-width: 450px) {
   .depth3Frame1 {
     gap: 0 16px;
     padding-left: var(--padding-xl);
     box-sizing: border-box;
   }
+
   .grilledSalmonWith {
     font-size: 29px;
     line-height: 36px;
   }
+
   .depth6Frame0Parent {
     gap: 0 16px;
   }
