@@ -190,10 +190,7 @@ const Home = () => {
             <div>
               <h3 className="adopt-head">Just Snap it! , Search it!</h3>
               <p className="adopt-content">
-                Glad that you care for animals. We make sure you will not repent
-                your decision of adopting a pet. Embrace joy and companionship
-                by adopting a pet today. Provide a loving home and make a
-                lasting impact on a furry friend's life.
+                <i>Your yummy!! dish that you are curious about is just click away,capture it and just upload it here & take up your weapons to start making it</i>
               </p>
               <button className="adopt-btn">
                 <Link to="/adopt">Upload</Link>
@@ -206,12 +203,10 @@ const Home = () => {
                 Tired of the same meal on repeat?,<br></br> Try something Different!
               </h3>
               <p className="giveaway-content">
-                Whether you're unable to care for your pet or you simply want to
-                help an animal find a loving home, your decision can make a
-                world of difference. Join us in creating happier tails!
+                <i>Are you also bored of eating the same taste everyday? , give a tinch of new taste to yourself and your loved ones by exploring various cuisines of different continents</i>
               </p>
               <button className="giveaway-btn">
-                <Link to="/giveaway">Search</Link>
+                <Link to="/recipe">Search</Link>
               </button>
             </div>
           </div>
@@ -222,9 +217,9 @@ const Home = () => {
           style={{ marginTop: "150px", width: "100%", marginBottom: "80px" }}
         >
           <h1
-            style={{ width: "100%", textAlign: "center", marginBottom: "30px" }}
+            style={{ width: "auto", textAlign: "left",marginLeft:"19%"}}
           >
-            Here is the recipe of the day.....
+           Let's See what's in the menu today😋
           </h1>
           <RecipeName
             title={dayRecipeTitle}
