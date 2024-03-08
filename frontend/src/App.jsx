@@ -27,9 +27,10 @@ function App() {
           <Route path="/ingredients" element={<Ingredients/>}/>
           <Route path="/favourites" element={<Favorites />}/>
           <Route path="/cart" element={<Cart />} />
+          <Route path="/recipe" element={<SearchRecipeByRegion />}/>
           <Route path="/recipe/:id" element={<RecipeProfile />} />
           <Route path="/recipeIns/:id" element={<Ingredients />} />
-          <Route path="/recipe1" element={<SearchRecipeByRegion />}/>
+          
         </Routes>
         <Footer />
       </BrowserRouter>

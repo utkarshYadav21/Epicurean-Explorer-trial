@@ -17,7 +17,7 @@ const Nav = () => {
       {auth ? (
         <>
           <div className="left-section">
-          <img  src="../../images/icon.png" alt="logo" />
+          <img  src="../../images/icon.png" alt="logo" style={{height:"40px",width:"40px"}}/>
             <Link to="/">Epicurean Explorer</Link>
           </div>
 

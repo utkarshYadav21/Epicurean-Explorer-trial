@@ -101,15 +101,18 @@ const Home = () => {
       },
     });
     des = await des.json();
-    console.log(des)
+    console.log(des);
     console.log(des.description);
     setDescription(des.description);
   };
 
-
   const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    setSelectedImage(file);
+    if (event.target && event.target.files && event.target.files.length > 0) {
+      const file = event.target.files[0];
+      setSelectedImage(file);
+    } else {
+      console.error('No file selected or event target is undefined');
+    }
   };
   const handleImageRemove = () => {
     setSelectedImage(null);
@@ -119,10 +122,14 @@ const Home = () => {
       <div className="page-container">
         <div className="intro-container">
           <h1 className="intro">
-            Explore more than <br></br> <span className="quantity">118,000</span> recipes
+            Explore more than <br></br>{" "}
+            <span className="quantity">118,000</span> recipes
           </h1>
           <p className="intro-des">
-           <i>"Dive into the sea of numerous delicious recipes , get a cloth ready to <br></br>wipe out the water dropping from your mouth"</i>
+            <i>
+              "Dive into the sea of numerous delicious recipes , get a cloth
+              ready to <br></br>wipe out the water dropping from your mouth"
+            </i>
           </p>
           <div className="searching">
             <div className="search-div">
@@ -162,8 +169,7 @@ const Home = () => {
             </div>
             {selectedImage && (
               <div className="selected-image-div">
-                <div className = "uploaded-image-container">
-                  
+                <div className="uploaded-image-container">
                   <IoCloseCircleOutline
                     onClick={handleImageRemove}
                     style={{
@@ -181,45 +187,51 @@ const Home = () => {
                   />
                   <p className="selected-image-name">{selectedImage.name}</p>
                 </div>
-                
               </div>
             )}
           </div>
         </div>
         <div className="adopt-div-r">
-            <div>
-              <h3 className="adopt-head">Just Snap it! , Search it!</h3>
-              <p className="adopt-content">
-                <i>Your yummy!! dish that you are curious about is just click away,capture it and just upload it here & take up your weapons to start making it</i>
-              </p>
-              <button className="adopt-btn">
-                <Link to="/adopt">Upload</Link>
-              </button>
-            </div>
+          <div>
+            <h3 className="adopt-head">Just Snap it! , Search it!</h3>
+            <p className="adopt-content">
+              <i>
+                Your yummy!! dish that you are curious about is just click
+                away,capture it and just upload it here & take up your weapons
+                to start making it
+              </i>
+            </p>
+            <input type="file" accept="image/*" style={{ display: "none" }} onChange={handleImageUpload} />
+    <button onClick={() => document.querySelector('input[type="file"]').click()}>Upload</button>
+            
           </div>
-          <div className="giveaway-div">
-            <div className="giveaway-div-in">
-              <h3 className="adopt-head">
-                Tired of the same meal on repeat?,<br></br> Try something Different!
-              </h3>
-              <p className="giveaway-content">
-                <i>Are you also bored of eating the same taste everyday? , give a tinch of new taste to yourself and your loved ones by exploring various cuisines of different continents</i>
-              </p>
-              <button className="giveaway-btn">
-                <Link to="/recipe">Search</Link>
-              </button>
-            </div>
+        </div>
+        <div className="giveaway-div">
+          <div className="giveaway-div-in">
+            <h3 className="adopt-head">
+              Tired of the same meal on repeat?,<br></br> Try something
+              Different!
+            </h3>
+            <p className="giveaway-content">
+              <i>
+                Are you also bored of eating the same taste everyday? , give a
+                tinch of new taste to yourself and your loved ones by exploring
+                various cuisines of different continents
+              </i>
+            </p>
+            <Link to="/recipe">
+              <button className="giveaway-btn">Search</button>
+            </Link>
           </div>
-          
+        </div>
+
         <div
           className="top-recipes"
           id="top-recipes-section"
           style={{ marginTop: "150px", width: "100%", marginBottom: "80px" }}
         >
-          <h1
-            style={{ width: "auto", textAlign: "left",marginLeft:"19%"}}
-          >
-           Let's See what's in the menu today😋
+          <h1 style={{ width: "auto", textAlign: "left", marginLeft: "19%" }}>
+            Let's See what's in the menu today😋
           </h1>
           <RecipeName
             title={dayRecipeTitle}
