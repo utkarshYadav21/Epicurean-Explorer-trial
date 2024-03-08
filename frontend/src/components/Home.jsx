@@ -76,7 +76,8 @@ const Home = () => {
                       fontSize: "28px",
                       marginLeft: "13px",
                       cursor: "pointer",
-                      marginTop:"5px"
+                      marginTop:"5px",
+                      color:"red"
                     }}
                   />
                 </div>
