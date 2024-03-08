@@ -86,7 +86,6 @@ span {
     display: flex;
     justify-content: space-around;
     padding: 40px;
-    margin-top: 20px;
     height: fit-content;
     background-color: #719557;
 }

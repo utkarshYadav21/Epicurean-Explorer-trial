@@ -19,13 +19,14 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/recipe" element={<RecipeProfile />} />
           <Route path="/login" element={<Users />} />
           <Route path="/signup" element={<Users />} />
           <Route path="/contactus" element= {<Contact/>} />
           <Route path="/ingredients" element={<Ingredients/>}/>
           <Route path="/favorites" element={<Favorites />}/>
           <Route path="/cart" element={<Cart />} />
+          <Route path="/recipe/:id" element={<RecipeProfile />} />
+          <Route path="/recipeIns/:id" element={<Ingredients />} />
         </Routes>
         <Footer />
       </BrowserRouter>

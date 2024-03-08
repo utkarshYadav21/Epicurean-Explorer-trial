@@ -4,5 +4,7 @@ const router = express.Router()
 
 router.route('/')
     .post(llmController.generateAIContent)
-
+    
+    
+router.post('/description',llmController.generateAIDescription)
 module.exports = router
