@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Ingredients/ingredient.module.css";
 
-const RecipeName = ({ title, image }) => {
+const RecipeName = ({ title, image, handleFavourite}) => {
   return (
     <div className={styles.galileoDesign}>
       <main className={styles.depth0Frame0}>
@@ -29,7 +29,7 @@ const RecipeName = ({ title, image }) => {
                     <button className={styles.depth8Frame03}>
                       <div className={styles.depth9Frame01}>
                         <div className={styles.depth10Frame02}>
-                          <b className={styles.save}>Favourite</b>
+                          <b className={styles.save} onClick={handleFavourite} >Favourite</b>
                         </div>
                       </div>
                     </button>

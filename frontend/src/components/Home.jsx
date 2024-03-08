@@ -39,9 +39,11 @@ const Home = () => {
       body:JSON.stringify({dayRecipeId}),
       headers:{
         'Content-Type':'application/json',
-        'Authorization1':`Bearer ${localStorage.getItem('jwt')}`
+        'Authorization':`Bearer ${localStorage.getItem('jwt')}`
       }
     })
+    favouriteRes=await favouriteRes.json();
+    console.log(favouriteRes)
   }
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -159,7 +161,7 @@ const Home = () => {
           >
             Here is the recipe of the day.....
           </h1>
-          <RecipeName title={dayRecipeTitle} image={dayRecipeImage} />
+          <RecipeName title={dayRecipeTitle} image={dayRecipeImage} handleFavourite={handleFavourite}/>
         </div>
       </div>
     </div>
