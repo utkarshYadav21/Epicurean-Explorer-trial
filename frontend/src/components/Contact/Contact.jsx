@@ -45,7 +45,7 @@ const Contact = () => {
           <span className="contact-circle one"></span>
           <span className="contact-circle two"></span>
 
-          <form action="index.html" autoComplete="off">
+          <form >
             <h3 className="contact-title">Contact us</h3>
             <div className="contact-input-container">
               <input
