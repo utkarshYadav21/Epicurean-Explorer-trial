@@ -2,12 +2,23 @@ import React, { useState } from 'react';
 import '../css/cart.css';
 
 const Cart = () => {
+    const [cartItems,setCartItems]=useState([]);
     const [recipes, setRecipes] = useState([
         { name: 'Tea', ingredients: ['Sugar', 'Milk', 'Chai Patti'] },
         { name: 'Egg Casseroles', ingredients: [] },
         { name: 'French Toast', ingredients: [] },
     ]);
-
+    const getCartItems=async()=>{
+        let res=await fetch("http://127.0.0.1:8000/api/v1/cart",{
+            method:'get',
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization': `Bearer ${localStorage.getItem("jwt")}`
+            }
+        });
+        res=res.json();
+        
+    }
     const handleDelete = (recipeIndex, ingredientIndex) => {
         const newRecipes = [...recipes];
         newRecipes[recipeIndex].ingredients.splice(ingredientIndex, 1);

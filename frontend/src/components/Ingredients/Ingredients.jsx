@@ -6,6 +6,7 @@ const Ingredients = () => {
   const [RecipeTitle, setRecipeTitle] = useState("");
   const [RecipeImage, setRecipeImage] = useState("");
   const [listIngerdients, setListIngredients] = useState([]);
+  const [instructionList, setInstructionList] = useState([]);
   const [selectedIngredient, setSelectedIngredient] = useState("");
   const [description, setDescription] = useState("");
   const apiUrl = "R8OO00YzjtyAMfp-O1lpcxhdPuubeMD_pM92fOE8t7on5uln";
@@ -20,30 +21,27 @@ const Ingredients = () => {
   };
 
   const { id } = useParams();
-  useEffect(() => {
-    getRecipe();
-    getIngredients();
-  }, []);
-  const getDescription = async () => {
-    console.log();
-    let des = await fetch("http://127.0.0.1:8000/api/v1/llmmodel/description", {
-      method: "post",
-      body: JSON.stringify({ recipename: RecipeTitle }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    des = await des.json();
-    setDescription(des.description);
-  };
+
+  // const getDescription = async () => {
+  //   console.log();
+  //   let des = await fetch("http://127.0.0.1:8000/api/v1/llmmodel/description", {
+  //     method: "post",
+  //     body: JSON.stringify({ recipename: RecipeTitle }),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   });
+  //   des = await des.json();
+  //   setDescription(des.description);
+  // };
   const setIngredientToCart = async () => {
-    console.log(selectedIngredient)
+    console.log(selectedIngredient);
     let res = await fetch("http://127.0.0.1:8000/api/v1/cart", {
       method: "post",
       body: JSON.stringify({ recipename: RecipeTitle, selectedIngredient }),
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
     });
     res = await res.json();
@@ -61,7 +59,7 @@ const Ingredients = () => {
     if (recipe.success === "true") {
       setRecipeTitle(recipe.payload.Recipe_title);
       setRecipeImage(recipe.payload.img_url);
-          getDescription();
+      // getDescription();
     } else {
       alert("no recipe of the day found");
     }
@@ -76,10 +74,11 @@ const Ingredients = () => {
     });
     ingIns = await ingIns.json();
     let { ingredients, instructions } = ingIns;
-    console.log(ingredients, instructions);
     setListIngredients(ingredients);
+    setInstructionList(instructions);
   };
-
+  getRecipe();
+  getIngredients();
   return (
     <div className={styles.galileoDesign}>
       <main className={styles.depth0Frame0}>
@@ -157,8 +156,8 @@ const Ingredients = () => {
                     className={styles.depth5Frame5}
                     style={{ cursor: "pointer" }}
                     onClick={() => {
-                        setSelectedIngredient(ing);
-                      }}
+                      setSelectedIngredient(ing);
+                    }}
                   >
                     <div className={styles.depth6Frame013}>
                       <div className={styles.depth7Frame015}>
@@ -172,12 +171,9 @@ const Ingredients = () => {
                         </div>
                       </div>
                     </div>
-                    <div
-                      className={styles.depth6Frame15}
-                      
-                    >
+                    <div className={styles.depth6Frame15}>
                       <div className={styles.depth7Frame016}>
-                        <div >{ing}</div>
+                        <div>{ing}</div>
                       </div>
                     </div>
                   </div>
@@ -185,7 +181,11 @@ const Ingredients = () => {
               })}
 
               <div className={styles.recipejumpframe}>
-                <div className={styles.depth4Frame4} id="instructionsSection">
+                <div
+                  className={styles.depth4Frame4}
+                  id="instructionsSection"
+                  style={{ marginTop: "30px" }}
+                >
                   <div className={styles.depth5Frame05}>
                     <div className={styles.depth6Frame015}>
                       <b className={styles.instructions}>Instructions</b>
@@ -193,29 +193,13 @@ const Ingredients = () => {
                   </div>
                 </div>
               </div>
-              <div className={styles.oliveOilDrop}>
-                <div className={styles.depthFrameDepthFrameVector}>
-                  <div className={styles.depth5Frame06}>
-                    <div className={styles.depth6Frame17}>
-                      <div className={styles.depth7Frame020}>
-                        <div className={styles.depth8Frame012}>
-                          <b className={styles.seasonTheSalmon}>
-                            Season the salmon
-                          </b>
-                        </div>
-                      </div>
-                      <div className={styles.depth7Frame1}>
-                        <div className={styles.depth8Frame013}>
-                          <div className={styles.drizzleTheSalmon}>
-                            Drizzle the salmon with olive oil and sprinkle with
-                            salt and black pepper
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+              {instructionList.map((ins, index) => {
+                return (
+                  <div key={index} className={styles.instruction} style={{backgroundColor:"#4f964f"}}>
+                    <p className={styles.instructionText}>{ins}</p>
                   </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </section>
