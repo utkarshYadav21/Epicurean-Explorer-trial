@@ -1,5 +1,24 @@
 const AppError = require("../utils/apperror");
+const axios = require('axios')
 const catchasync = require("../utils/catchasync")
+
+const getbyID = async  (id) => {
+  let config = {
+    method : 'GET',
+    url : `https://apis-new.foodoscope.com/recipe/${id}`,
+    headers : {
+      'content-type' : 'application/json',
+      'Authorization' : `Bearer ${process.env.RECIPE_API_KEY}`
+    }
+  }
+
+  const recipeinfo = await axios(config)
+
+  return recipeinfo.data
+
+}
+
+
 
 
 exports.getfavrecipe = catchasync(async (req,res,next)=>{
@@ -9,15 +28,35 @@ exports.getfavrecipe = catchasync(async (req,res,next)=>{
     }
     const favArray = req.user.favrecipes
     console.log(favArray);
+    if(!favArray){
+      return next(new AppError("Currently you have no favourite recipes \nStart Adding Recipes to your Favuorites"))
+    }
 
-    res.status(201).json({
-        status: 'Success',
-        recipeId: {
-          favArray
-        }
-      });
+     // Use Promise.all to await all asynchronous calls
+  const favRecipeDetails = await Promise.all(
+    favArray.map(async (recipeId) => {
+      return await getbyID(recipeId);
+    })
+  );
 
-});
+
+  
+  const formattedFavRecipeDetails = favRecipeDetails.map((recipe) => {
+    return {
+      Recipe_title: recipe.payload.Recipe_title,
+      img_url: recipe.payload.img_url
+    };
+  });
+  
+  console.log(formattedFavRecipeDetails);
+  
+  res.status(201).json({
+    status: 'Success',
+    recipeDetails: formattedFavRecipeDetails
+  });
+
+  });
+
 
 
 exports.addtofav = catchasync(async (req,res,next)=>{
