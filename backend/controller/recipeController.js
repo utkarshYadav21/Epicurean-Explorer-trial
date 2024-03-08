@@ -6,7 +6,14 @@ exports.getSimilarRecipe = catchasync(  async (req,res,next) => {
     const recipeId = req.body.recipeid; // Assuming the recipe id is in req.body
     const apiUrl = `https://cosylab.iiitd.edu.in/api/recipeDB/similarrecipescat/${recipeId}`;
 
-    const response = await axios.get(apiUrl);
+    const config = {
+      method : 'GET',
+      url : apiUrl,
+      Headers : {
+        Authorisation : `Bearer ${process.env.RECIPE_API_KEY}`
+      }
+    }
+    const response = await axios.get(config);
     const similarRecipesData = response.data;
 
     // Process the data as needed

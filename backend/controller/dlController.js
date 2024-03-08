@@ -6,7 +6,7 @@ const INFERENCEKEY = process.env.HUGGINGFACE_API_KEY
 
 const inference = new HfInference(INFERENCEKEY);
 
-const model = "rajistics/finetuned-indian-food";
+const model = process.env.HUGGINGFACE_MODEL;
 
 
 exports.getrecipefromImage = catchasync (async(req,res,next) =>{

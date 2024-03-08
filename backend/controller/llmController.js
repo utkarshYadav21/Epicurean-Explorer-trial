@@ -1,4 +1,4 @@
-
+const axios = require('axios')
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const AppError = require("../utils/apperror");
@@ -14,20 +14,60 @@ const model = genAI.getGenerativeModel({ model: "gemini-pro", generationConfig }
 // 3. Generate Content
 
 exports.generateAIContent = catchasync(async (req,res,next)=> {
-    const query = req.body.prompt
-    if(!query){
-        return next (new AppError("No Instructions were fetched from api",404))
+const recipeid = req.body.recipeid
+let config = {
+    method : 'GET',
+    url : `https://apis-new.foodoscope.com/recipe/${recipeid}`,
+    Headers : {
+        'content-type' : 'application/json',
+        'Authorization' : `Bearer ${process.env.RECIPE_API_KEY}`
     }
-    const prompt = `Convert the following cooking instructions intoo easily understandable stepwise instructions: ${query} and give the output in html representation using tags such as <b>,<br>,<li> and dont use \\n   `;
+}
+
+const recipeinfo = await axios(config);
+const stringifiedData = recipeinfo.data;
+console.log(stringifiedData);
+// const recipedata = JSON.stringify(recipeinfo.data.payload.instructions)
+
+// console.log(recipedata)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // const query = req.body.prompt   
+    // if(!query){
+    //     return next (new AppError("No Instructions were fetched from api",404))
+    // }
+
+    //   const wrappedProcedureString = `"""${query.join("\n")}"""`;
+      
+    //   console.log(wrappedProcedureString);
+      
     
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const restext = response.text()
-    console.log(response.text());
+    // const prompt = `Convert the following cooking instructions intoo easily understandable stepwise instructions: ${wrappedProcedureString} and give the output in html representation using tags such as <b>,<br>,<li> and dont use \\n   `;
+    
+    // const result = await model.generateContent(prompt);
+    // const response = await result.response;
+    // const restext = response.text()
+    // console.log(response.text());
+
+
 
     res.status(201).json({
         status : "success",
-        response : restext
+        //response : 
     })
 
 })
