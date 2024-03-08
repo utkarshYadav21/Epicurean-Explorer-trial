@@ -15,7 +15,10 @@ const model = genAI.getGenerativeModel({ model: "gemini-pro", generationConfig }
 
 exports.generateAIContent = catchasync(async (req,res,next)=> {
     const query = req.body.prompt
-    const prompt = `Convert the following into easily understandable stepwise instruction ${query} `;
+    if(!query){
+        return next (new AppError("No Instructions were fetched from api",404))
+    }
+    const prompt = `Convert the following cooking instructions intoo easily understandable stepwise instructions: ${query} and give the output in html representation using tags such as <b>,<br>,<li> and dont use \\n   `;
     
     const result = await model.generateContent(prompt);
     const response = await result.response;
