@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route,  useNavigationType,
+  useLocation } from "react-router-dom";
 import Users from "./components/Users";
 import RecipeCard from "./components/RecipeCard";
 import RecipeCardList from "./components/RecipeCardList";
@@ -7,6 +8,7 @@ import Home from "./components/Home";
 import Nav from "./components/Nav";
 import Contact from "./components/Contact/Contact";
 import  Footer from "./components/Footer";
+import Ingredients from "./components/Ingredients/Ingredients";
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
           <Route path="/login" element={<Users />} />
           <Route path="/signup" element={<Users />} />
           <Route path="/contactus" element= {<Contact/>} />
+          <Route path="/ingredients" element={<Ingredients/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>
