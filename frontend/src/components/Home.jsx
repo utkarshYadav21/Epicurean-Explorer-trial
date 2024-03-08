@@ -186,7 +186,7 @@ const Home = () => {
             )}
           </div>
         </div>
-        <div className="adopt-div">
+        <div className="adopt-div-r">
             <div>
               <h3 className="adopt-head">Just Snap it! , Search it!</h3>
               <p className="adopt-content">
@@ -196,14 +196,14 @@ const Home = () => {
                 lasting impact on a furry friend's life.
               </p>
               <button className="adopt-btn">
-                <Link to="/adopt">Adopt</Link>
+                <Link to="/adopt">Upload</Link>
               </button>
             </div>
           </div>
           <div className="giveaway-div">
-            <div>
-              <h3 className="giveaway-head">
-                If you can't take care of your pet, we will!
+            <div className="giveaway-div-in">
+              <h3 className="adopt-head">
+                Tired of the same meal on repeat?,<br></br> Try something Different!
               </h3>
               <p className="giveaway-content">
                 Whether you're unable to care for your pet or you simply want to
@@ -211,10 +211,11 @@ const Home = () => {
                 world of difference. Join us in creating happier tails!
               </p>
               <button className="giveaway-btn">
-                <Link to="/giveaway">Giveaway</Link>
+                <Link to="/giveaway">Search</Link>
               </button>
             </div>
           </div>
+          
         <div
           className="top-recipes"
           id="top-recipes-section"
