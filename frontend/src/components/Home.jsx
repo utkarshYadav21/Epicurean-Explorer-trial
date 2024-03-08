@@ -10,6 +10,7 @@ const Home = () => {
   const navigate = useNavigate("");
   const apiUrl = "Qdjx2FhUGUxlKdRxwRBAd6TNSjB__ryn-BZd2K4gg5XTj0J1";
   const [searchRecipe, setSearchRecipe] = useState("");
+  const [description,setDescription]=useState("")
   const [dayRecipe, setDayRecipe] = useState("");
   const [dayRecipeTitle, setDayRecipeTitle] = useState("");
   const [dayRecipeImage, setDayRecipeImage] = useState("");
@@ -53,6 +54,7 @@ const Home = () => {
       alert("Please search atleast one thing.");
     }
   };
+  
   const getTopRecipes = async () => {
     let recipe = await fetch(
       "https://apis-new.foodoscope.com/recipe/recipeOftheDay",
@@ -70,6 +72,7 @@ const Home = () => {
     if (recipe.success === "true") {
       setDayRecipeTitle(recipe.payload.Recipe_title);
       setDayRecipeImage(recipe.payload.img_url);
+      getDescription();
     } else {
       alert("no recipe of the day found");
     }
@@ -87,6 +90,19 @@ const Home = () => {
     favouriteRes = await favouriteRes.json();
     console.log(favouriteRes);
   };
+  const getDescription=async()=>{
+    console.log(dayRecipeTitle)
+    let des=await fetch("http://127.0.0.1:8000/api/v1/llmmodel/description",{
+      method:'post',
+      body:JSON.stringify({recipename:dayRecipeTitle}),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })
+    des=await des.json();
+    console.log(des.description);
+    setDescription(des.description);
+  }
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     setSelectedImage(file);
@@ -209,6 +225,7 @@ const Home = () => {
           <RecipeName
             title={dayRecipeTitle}
             image={dayRecipeImage}
+            description={description}
             handleFavourite={handleFavourite}
           />
         </div>
