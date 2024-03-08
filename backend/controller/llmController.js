@@ -25,10 +25,17 @@ let config = {
 }
 
 const recipeinfo = await axios(config);
+
+if(!recipeinfo.data.payload.ingredients){
+    return next(new AppError("No ingredients Found in the payload or payload "))
+}
+const ingredientArray = recipeinfo.data.payload.ingredients.map(ingredient => ingredient.ingredient);
+console.log(ingredientArray);
+
 const stringifiedData = recipeinfo.data.payload.instructions;
-//console.log(stringifiedData);
-const recipeString = stringifiedData.join(' ');
-console.log(recipeString);
+// //console.log(stringifiedData);
+ const recipeString = stringifiedData.join(' ');
+// //console.log(recipeString);
   
     if(!recipeString){
         return next (new AppError("No Instructions were fetched from api",404))
@@ -39,7 +46,7 @@ console.log(recipeString);
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const restext = response.text()
-    console.log(response.text());
+    //console.log(response.text());
 
     const finalHTMLinstruction = restext.replace(/\n/g, ' ');
 
@@ -47,8 +54,11 @@ console.log(recipeString);
 
     res.status(201).json({
         status : "success",
-        response : finalHTMLinstruction
+        instructions : finalHTMLinstruction,
+        ingredients : ingredientArray
     })
+
+    //returning the instruction in the html code format and the ingredients in the array format
 
 })
 

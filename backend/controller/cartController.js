@@ -7,6 +7,9 @@ exports.addItemtoCart = catchasync(async (req,res,next) => {
     console.log(cart.cartItem)
     const recipeName = req.body.recipename
     const ingredient = req.body.ingredient
+    if(!ingredient){
+      return next (new AppError("The ingredient is empty ",400))
+    }
     if(!Array.isArray(cart.cartItem)){
         //console.log("cartitem is not an array making it into array")
         cart.cartItem = []
