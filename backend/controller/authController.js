@@ -72,8 +72,8 @@ exports.protect = catchasync(async (req,res,next) =>{
 //1) check if token exist
 let token;
 //we send the toekn via header in form :  {authorization : bearer <TOKEN>}
-if(req.headers.authorization && req.headers.authorization1.startsWith('Bearer')){
-    token = req.headers.authorization1.split(' ')[1];
+if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
+    token = req.headers.authorization.split(' ')[1];
 }
 console.log(token)
 if(!token){
