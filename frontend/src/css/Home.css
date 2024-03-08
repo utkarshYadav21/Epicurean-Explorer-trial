@@ -7,7 +7,8 @@ body{
 }
 .intro {
     width: 100%;
-    text-align: center;
+    margin-left: 40px;
+    text-align: left;
     font-size: 54px;
     font-weight: bolder;
 }
@@ -17,34 +18,66 @@ span {
 }
 
 .intro-container {
-    margin-top: 40px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url("../../images/background2.png");
+    background-size: cover;
 }
 
 .intro-des {
+    display: flex;
+    align-items: center;
     width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    text-align: center;
+    margin: 15px 0px 5px 50px;
+    text-align: left;
     font-weight: 600;
 }
   
 .search-div {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 5px;
+    justify-content: left;
+    margin-left: 40px;
 }
 
 .search-field {
     padding: 10px 32px;
     border-radius: 40px;
-    background-color: #fedc99;
-    border: 1px solid #ddd;
+    background-color: #e9e9e9;
+    border: 2px solid #ddd;
     font-size: 1em;
     height: 50px;
-    width: 775px;
+    width: 575px;
 }
+.selected-image-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+}
+
+
+
+.uploaded-image-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 100px;
+    
+}
+.uploaded-image{
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.selected-image-name{
+    margin: 0px 10px 0px 10px;
+    text-align: left;
+}
+
 .adopt-btn{
     border-radius: 36px;
     background: #a99958;
@@ -115,16 +148,4 @@ span {
     text-align: center;
     height: 50px;
     padding: 0.1px;
-}
-.selected-image-div{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.uploaded-image{
-    margin-top: 10px;
-    max-width: 400px;
-    max-height: 400px;
 }

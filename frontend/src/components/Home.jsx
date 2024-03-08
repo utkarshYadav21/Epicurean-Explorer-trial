@@ -8,9 +8,9 @@ import RecipeName from "./RecipeName";
 
 const Home = () => {
   const navigate = useNavigate("");
-  const apiUrl = "Qdjx2FhUGUxlKdRxwRBAd6TNSjB__ryn-BZd2K4gg5XTj0J1";
+  const apiUrl = "R8OO00YzjtyAMfp-O1lpcxhdPuubeMD_pM92fOE8t7on5uln";
   const [searchRecipe, setSearchRecipe] = useState("");
-  const [description,setDescription]=useState("")
+  const [description, setDescription] = useState("");
   const [dayRecipe, setDayRecipe] = useState("");
   const [dayRecipeTitle, setDayRecipeTitle] = useState("");
   const [dayRecipeImage, setDayRecipeImage] = useState("");
@@ -54,7 +54,7 @@ const Home = () => {
       alert("Please search atleast one thing.");
     }
   };
-  
+
   const getTopRecipes = async () => {
     let recipe = await fetch(
       "https://apis-new.foodoscope.com/recipe/recipeOftheDay",
@@ -77,6 +77,7 @@ const Home = () => {
       alert("no recipe of the day found");
     }
   };
+
   const handleFavourite = async () => {
     let dayRecipeId = dayRecipe.payload.Recipe_id;
     let favouriteRes = await fetch("http://127.0.0.1:8000/api/v1/fav", {
@@ -90,19 +91,22 @@ const Home = () => {
     favouriteRes = await favouriteRes.json();
     console.log(favouriteRes);
   };
-  const getDescription=async()=>{
-    console.log(dayRecipeTitle)
-    let des=await fetch("http://127.0.0.1:8000/api/v1/llmmodel/description",{
-      method:'post',
-      body:JSON.stringify({recipename:dayRecipeTitle}),
-      headers:{
-        'Content-Type':'application/json'
-      }
-    })
-    des=await des.json();
+  const getDescription = async () => {
+    console.log(dayRecipeTitle);
+    let des = await fetch("http://127.0.0.1:8000/api/v1/llmmodel/description", {
+      method: "post",
+      body: JSON.stringify({ recipename: dayRecipeTitle }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    des = await des.json();
+    console.log(des)
     console.log(des.description);
     setDescription(des.description);
-  }
+  };
+
+
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     setSelectedImage(file);
@@ -115,13 +119,10 @@ const Home = () => {
       <div className="page-container">
         <div className="intro-container">
           <h1 className="intro">
-            Search among <span className="quantity">1500</span> recipes
+            Explore more than <br></br> <span className="quantity">118,000</span> recipes
           </h1>
           <p className="intro-des">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen b
+           <i>"Dive into the sea of numerous delicious recipes , get a cloth ready to <br></br>wipe out the water dropping from your mouth"</i>
           </p>
           <div className="searching">
             <div className="search-div">
@@ -161,30 +162,33 @@ const Home = () => {
             </div>
             {selectedImage && (
               <div className="selected-image-div">
-                <div style={{ display: "flex" }}>
+                <div className = "uploaded-image-container">
+                  
+                  <IoCloseCircleOutline
+                    onClick={handleImageRemove}
+                    style={{
+                      fontSize: "28px",
+                      margin: "0px 10px 0px 10px",
+                      cursor: "pointer",
+                      marginTop: "5px",
+                      color: "black",
+                    }}
+                  />
                   <img
                     src={URL.createObjectURL(selectedImage)}
                     alt="Uploaded"
                     className="uploaded-image"
                   />
-                  <IoCloseCircleOutline
-                    onClick={handleImageRemove}
-                    style={{
-                      fontSize: "28px",
-                      marginLeft: "13px",
-                      cursor: "pointer",
-                      marginTop: "5px",
-                      color: "red",
-                    }}
-                  />
+                  <p className="selected-image-name">{selectedImage.name}</p>
                 </div>
-                <p className="selected-image-name">{selectedImage.name}</p>
+                
               </div>
             )}
           </div>
-          <div className="adopt-div">
+        </div>
+        <div className="adopt-div">
             <div>
-              <h3 className="adopt-head">Welcome to Pet Palace</h3>
+              <h3 className="adopt-head">Just Snap it! , Search it!</h3>
               <p className="adopt-content">
                 Glad that you care for animals. We make sure you will not repent
                 your decision of adopting a pet. Embrace joy and companionship
@@ -211,7 +215,6 @@ const Home = () => {
               </button>
             </div>
           </div>
-        </div>
         <div
           className="top-recipes"
           id="top-recipes-section"

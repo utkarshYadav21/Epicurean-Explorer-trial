@@ -42,7 +42,7 @@ const stringifiedData = recipeinfo.data.payload.instructions;
     };
       
     
-    const prompt = `Convert the following instructions into easy stepwise instructions: ${recipeString} give direct html code using list and without \\n  for e.g STEP-1 : cook the food <br> STEP-2 : boil it , also cover the text like STEP-1 in <b> tag `;
+    const prompt = `Convert the following instructions into easy stepwise instructions: ${recipeString} for e.g Step 1 : boil the food , Step 2 : cook it , give it in an array of steps seperated by comma`;
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const restext = response.text()
@@ -50,11 +50,16 @@ const stringifiedData = recipeinfo.data.payload.instructions;
 
     const finalHTMLinstruction = restext.replace(/\n/g, ' ');
 
+    const recipeStepsArray = finalHTMLinstruction.split(". ");
 
+// Now you have an array of strings
+    recipeStepsArray.forEach(step => {
+        console.log(step);
+    });
 
     res.status(201).json({
         status : "success",
-        instructions : finalHTMLinstruction,
+        instructions : recipeStepsArray,
         ingredients : ingredientArray
     })
 
@@ -65,6 +70,9 @@ const stringifiedData = recipeinfo.data.payload.instructions;
 
 exports.generateAIDescription = catchasync(async (req,res,next) =>{
     const recipename = req.body.recipename
+    if(!recipename){
+        return next(new AppError("No Dish is Available"))
+    }
     const prompt = `Give small description about the food ${recipename} in 2 line`
     const result = await model.generateContent(prompt);
     const response = await result.response;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import RecipeCard from './RecipeCard'; 
 
@@ -39,11 +39,23 @@ const ProductName = styled.p`
 
 
 const Favorites = () => {
-    const [products, setProducts] = useState([
-      { id: 1, name: 'Shara Precision Elegance Timepiece', price: 40, image: '../../../images/location.png' },
-      { id: 2, name: 'Midnight Elegance by Noir Couture', price: 95, image: 'dress.jpg' },
-    ]);
-
+    const [fav,setFav]=useState([]);
+    const [description,setDescription]=useState("")
+    useEffect(()=>{
+      getFavCards();
+    })
+    const getFavCards=async()=>{
+      let res=await fetch("http://127.0.0.1:8000/api/v1/fav",{
+        method:'get',
+        headers:{
+          'Content-Type':'application/json',
+          "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
+        }
+      });
+      res=await res.json();
+      console.log(res);
+      setFav(res.recipeDetails)
+    }
  const handleAddToCart = (product) => {
    // Add to cart logic
    console.log(`Added ${product.name} to cart`);
@@ -54,11 +66,10 @@ const Favorites = () => {
       <Title>Favourites</Title>
       <Description>Your chosen collection is here to make you smile—it's like it was made just for you!</Description>
       <ProductsContainer>
-        {products.map((product) => (
-          <Product key={product.id}>
+        {fav.map((favourite) => (
+          <Product key={favourite.id}>
             {/* Replace the image with the RecipeCard component */}
-            <RecipeCard />
-            <ProductName>{product.name}</ProductName>
+            <RecipeCard title={favourite.Recipe_title} image={favourite.img_url} />
           </Product>
         ))}
       </ProductsContainer>

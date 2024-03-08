@@ -7,8 +7,12 @@ const Ingredients = () => {
   const [RecipeImage, setRecipeImage] = useState("");
   const [listIngerdients, setListIngredients] = useState([]);
   const [selectedIngredient, setSelectedIngredient] = useState("");
-  const [description,setDescription]=useState("")
-  const apiUrl = "Qdjx2FhUGUxlKdRxwRBAd6TNSjB__ryn-BZd2K4gg5XTj0J1";
+  const [description, setDescription] = useState("");
+  const apiUrl = "R8OO00YzjtyAMfp-O1lpcxhdPuubeMD_pM92fOE8t7on5uln";
+  useEffect(() => {
+    console.log(selectedIngredient);
+    setIngredientToCart();
+  }, [selectedIngredient]);
 
   const scrollToInstructions = () => {
     const instructionsSection = document.getElementById("instructionsSection");
@@ -20,42 +24,44 @@ const Ingredients = () => {
     getRecipe();
     getIngredients();
   }, []);
-  const getDescription=async()=>{
-    console.log()
-    let des=await fetch("http://127.0.0.1:8000/api/v1/llmmodel/description",{
-      method:'post',
-      body:JSON.stringify({recipename:RecipeTitle}),
-      headers:{
-        'Content-Type':'application/json'
-      }
-    })
-    des=await des.json();
-    setDescription(des.description);
-  }
-  const setIngredientToCart=async(ing)=>{
-    setSelectedIngredient(ing)
-    let res=await fetch("http://127.0.0.1:8000/api/v1/cart",{
-      method:'post',
-      body:JSON.stringify({recipename:RecipeTitle,selectedIngredient}),
-      headers:{
-        'Content-Type':'application/json'
-      }
+  const getDescription = async () => {
+    console.log();
+    let des = await fetch("http://127.0.0.1:8000/api/v1/llmmodel/description", {
+      method: "post",
+      body: JSON.stringify({ recipename: RecipeTitle }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
-    res=await res.json();
+    des = await des.json();
+    setDescription(des.description);
+  };
+  const setIngredientToCart = async () => {
+    console.log(selectedIngredient)
+    let res = await fetch("http://127.0.0.1:8000/api/v1/cart", {
+      method: "post",
+      body: JSON.stringify({ recipename: RecipeTitle, selectedIngredient }),
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
+      },
+    });
+    res = await res.json();
     console.log(res);
-  }
+  };
   const getRecipe = async () => {
     let recipe = await fetch(`https://apis-new.foodoscope.com/recipe/${id}`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${apiUrl}`,
+        Authorization: `Bearer ${apiUrl}`,
       },
     });
     recipe = await recipe.json();
     if (recipe.success === "true") {
       setRecipeTitle(recipe.payload.Recipe_title);
       setRecipeImage(recipe.payload.img_url);
+          getDescription();
     } else {
       alert("no recipe of the day found");
     }
@@ -66,14 +72,12 @@ const Ingredients = () => {
       body: JSON.stringify({ recipeid: id }),
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
       },
     });
     ingIns = await ingIns.json();
     let { ingredients, instructions } = ingIns;
     console.log(ingredients, instructions);
     setListIngredients(ingredients);
-    getDescription()
   };
 
   return (
@@ -101,18 +105,24 @@ const Ingredients = () => {
                       </div>
                       <div className={styles.depth9Frame1}>
                         <div className={styles.depth10Frame01}>
-                          <div className={styles.thisGrilledSalmon} style={{marginTop:"-60px"}}>
+                          <div
+                            className={styles.thisGrilledSalmon}
+                            style={{ marginTop: "-60px" }}
+                          >
                             {description}
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className={styles.frameSeasoning} style={{marginTop:"-16px"}}>
+                  <div
+                    className={styles.frameSeasoning}
+                    style={{ marginTop: "-16px" }}
+                  >
                     <button className={styles.depth8Frame03}>
                       <div className={styles.depth9Frame01}>
-                        <div className={styles.depth10Frame02} >
-                          <b className={styles.save} >Favourite</b>
+                        <div className={styles.depth10Frame02}>
+                          <b className={styles.save}>Favourite</b>
                         </div>
                       </div>
                     </button>
@@ -141,31 +151,37 @@ const Ingredients = () => {
                 </div>
               </div>
               {listIngerdients.map((ing, index) => {
-                return (<div key={index}
-                  className={styles.depth5Frame5}
-                  style={{ cursor: "pointer" }}
-                  onClick={() => {
-                    console.log("clicked");
-                  }}
-                >
-                  <div className={styles.depth6Frame013}>
-                    <div className={styles.depth7Frame015}>
-                      <div className={styles.depth7Frame025}>
-                        <img
-                          className={styles.createSalsaIcon}
-                          alt=""
-                          src="../../../images/plus.svg"
-                        />
-                        <div className={styles.depth8Frame018} />
+                return (
+                  <div
+                    key={index}
+                    className={styles.depth5Frame5}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                        setSelectedIngredient(ing);
+                      }}
+                  >
+                    <div className={styles.depth6Frame013}>
+                      <div className={styles.depth7Frame015}>
+                        <div className={styles.depth7Frame025}>
+                          <img
+                            className={styles.createSalsaIcon}
+                            alt=""
+                            src="../../../images/plus.svg"
+                          />
+                          <div className={styles.depth8Frame018} />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className={styles.depth6Frame15}
+                      
+                    >
+                      <div className={styles.depth7Frame016}>
+                        <div >{ing}</div>
                       </div>
                     </div>
                   </div>
-                  <div className={styles.depth6Frame15} onClick={setIngredientToCart(ing)}>
-                    <div className={styles.depth7Frame016}>
-                      <div className={styles.redOnion}>{ing}</div>
-                    </div>
-                  </div>
-                </div>)
+                );
               })}
 
               <div className={styles.recipejumpframe}>

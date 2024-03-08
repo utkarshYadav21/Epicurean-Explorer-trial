@@ -35,7 +35,7 @@ const Nav = () => {
           </ul>
           <div className="right-section">
             <Link to="/favourites" style={{fontSize: "28px",marginRight:"10px"}} ><FaRegHeart /></Link>
-            <Link to="/shopping-bag" style={{fontSize: "28px",marginRight:"10px"}} ><FiShoppingCart /></Link>
+            <Link to="/cart" style={{fontSize: "28px",marginRight:"10px"}} ><FiShoppingCart /></Link>
             <Link onClick={logout} to="/">
               Logout
             </Link>
