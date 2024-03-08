@@ -9,6 +9,7 @@ import Nav from "./components/Nav";
 import Contact from "./components/Contact/Contact";
 import  Footer from "./components/Footer";
 import RecipeProfile from "./components/RecipeProfile";
+import Ingredients from "./components/Ingredients/Ingredients";
 
 function App() {
   return (
