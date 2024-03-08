@@ -1,6 +1,7 @@
 .recipe-profile-container {
     display: flex;
     justify-content: space-around;
+    margin-top: 75px;
 }
 
 .recipe-profile-image {
@@ -44,6 +45,18 @@
     box-shadow: 0 0 9e9q inset #0009; 
     background-color: var(--c-hover); /* Set active background color */
     color: #fff; /* Set active text color */
+  }
+  .nutrients-div{
+    margin-top: 70px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #31b550;
+    padding: 20px; /* Adjust padding */
+    border-radius: 20px; /* Adjust border radius */
+    max-width: 1225px; /* Set maximum width */
+    margin-left: auto;
+    margin-right: auto;
   }
   
   
