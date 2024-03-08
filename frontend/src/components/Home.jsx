@@ -4,6 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import RecipeCardList from "./RecipeCardList";
 import { TbCameraShare } from "react-icons/tb";
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 const Home = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -11,6 +12,9 @@ const Home = () => {
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     setSelectedImage(file);
+  };
+  const handleImageRemove = () => {
+    setSelectedImage(null);
   };
   return (
     <div>
@@ -34,7 +38,11 @@ const Home = () => {
               />
               <FaSearch
                 className="search-icon"
-                style={{ fontSize: "28px", marginLeft: "12px" ,cursor: "pointer",}}
+                style={{
+                  fontSize: "28px",
+                  marginLeft: "12px",
+                  cursor: "pointer",
+                }}
               />
               <input
                 type="file"
@@ -56,11 +64,22 @@ const Home = () => {
             </div>
             {selectedImage && (
               <div className="selected-image-div">
-                <img
-                  src={URL.createObjectURL(selectedImage)}
-                  alt="Uploaded"
-                  className="uploaded-image"
-                />
+                <div style={{display:"flex"}}>
+                  <img
+                    src={URL.createObjectURL(selectedImage)}
+                    alt="Uploaded"
+                    className="uploaded-image"
+                  />
+                  <IoCloseCircleOutline
+                    onClick={handleImageRemove}
+                    style={{
+                      fontSize: "28px",
+                      marginLeft: "13px",
+                      cursor: "pointer",
+                      marginTop:"5px"
+                    }}
+                  />
+                </div>
                 <p className="selected-image-name">{selectedImage.name}</p>
               </div>
             )}

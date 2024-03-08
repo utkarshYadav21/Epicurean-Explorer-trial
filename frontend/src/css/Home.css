@@ -88,7 +88,7 @@ span {
     padding: 40px;
     margin-top: 20px;
     height: fit-content;
-    background-color: #637a7a;
+    background-color: #719557;
 }
 .footer-top-left{
     width: 300px;
@@ -111,7 +111,7 @@ span {
     gap: 10px;
 }
 .footer-bottom {
-    background-color: #637a7a;
+    background-color: #719557;
     color: #fff;
     text-align: center;
     height: 50px;
@@ -126,4 +126,6 @@ span {
 }
 .uploaded-image{
     margin-top: 10px;
+    max-width: 400px;
+    max-height: 400px;
 }
