@@ -8,7 +8,7 @@ import Home from "./components/Home";
 import Nav from "./components/Nav";
 import Contact from "./components/Contact/Contact";
 import  Footer from "./components/Footer";
-import Ingredients from "./components/Ingredients/Ingredients";
+import RecipeProfile from "./components/RecipeProfile";
 
 function App() {
   return (
@@ -17,8 +17,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/card" element={<RecipeCard />} />
-          <Route path="/cardList" element={<RecipeCardList />} />
+          <Route path="/recipe" element={<RecipeProfile />} />
           <Route path="/login" element={<Users />} />
           <Route path="/signup" element={<Users />} />
           <Route path="/contactus" element= {<Contact/>} />

@@ -1,8 +1,9 @@
 const userRouter = require('./routes/userRoutes')
 const favrouter = require('./routes/favroute')
 const cartRouter = require('./routes/cartRoutes')
-const LLMRoute = require('./routes/llmRoute')
-const similarrecipeRoute = require('./routes/similarrecipeRoute')
+const LLMRouter = require('./routes/llmRoute')
+const DLRouter = require('./routes/dlRoute')
+const similarrecipeRouter = require('./routes/similarrecipeRoute')
 const globalerrorhandler = require('./controller/errorController')
 const express = require('express');
 const cors=require('cors')
@@ -15,8 +16,10 @@ app.use(cors());
 app.use('/api/v1/users',userRouter);
 app.use('/api/v1/fav',favrouter);
 app.use('/api/v1/cart',cartRouter);
-app.use('/api/v1/llmmodel',LLMRoute)
-app.use('/api/v1/similarrecipe',similarrecipeRoute)
+app.use('/api/v1/llmmodel',LLMRouter)
+app.use('/api/v1/dlmodel',DLRouter)
+app.use('/api/v1/similarrecipe',similarrecipeRouter)
+
 
 
 app.all('*',(req,res,next)=>{

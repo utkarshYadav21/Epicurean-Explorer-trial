@@ -126,4 +126,6 @@ span {
 }
 .uploaded-image{
     margin-top: 10px;
+    max-width: 400px;
+    max-height: 400px;
 }
