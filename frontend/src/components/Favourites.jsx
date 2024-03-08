@@ -68,7 +68,6 @@ const Favorites = () => {
       <ProductsContainer>
         {fav.map((favourite) => (
           <Product key={favourite.id}>
-            {/* Replace the image with the RecipeCard component */}
             <RecipeCard title={favourite.Recipe_title} image={favourite.img_url} />
           </Product>
         ))}
