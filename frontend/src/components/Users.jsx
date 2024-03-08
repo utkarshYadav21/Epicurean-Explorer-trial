@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import  { useState } from "react";
 import "../css/users.css";
-import { Link, json, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Users = () => {
   const navigate = useNavigate("");
