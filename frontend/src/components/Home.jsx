@@ -36,7 +36,7 @@ const Home = () => {
     let dayRecipeId=dayRecipe.payload.Recipe_id;
     let favouriteRes=await fetch("http://127.0.0.1:8000/api/v1/fav",{
       method:'post',
-      body:JSON.stringify({dayRecipeId}),
+      body:JSON.stringify({recipeid:dayRecipeId}),
       headers:{
         'Content-Type':'application/json',
         'Authorization':`Bearer ${localStorage.getItem('jwt')}`
