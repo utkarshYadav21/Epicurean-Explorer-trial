@@ -16,7 +16,7 @@ const RecipeProfile = () => {
   const [carbs, setCarbs] = useState("");
 
   const { id } = useParams();
-  const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
+  const apiUrl = "YVooDgAgW5wOy92LHACLCuKbEmgvzUyJmJeSDe9m6TevI-Vb";
   useEffect(() => {
     getRecipe();
   }, []);

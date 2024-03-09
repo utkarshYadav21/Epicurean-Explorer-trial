@@ -5,7 +5,7 @@ import "../css/SimilarRecipe.css";
 import Loader from "./Loader";
 
 const SimilarRecipes = () => {
-  const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
+  const apiUrl = "YVooDgAgW5wOy92LHACLCuKbEmgvzUyJmJeSDe9m6TevI-Vb";
   const [recipes, setRecipes] = useState([]);
   const { id } = useParams();
   console.log(id);

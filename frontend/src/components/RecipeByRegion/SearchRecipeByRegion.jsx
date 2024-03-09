@@ -7,7 +7,7 @@ import ImageCard from "../ImageCard";
 const SearchRecipeByRegion = () => {
   const navigate=useNavigate('')
   const [searchTerm, setSearchTerm] = useState("");
-  const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
+  const apiUrl = "YVooDgAgW5wOy92LHACLCuKbEmgvzUyJmJeSDe9m6TevI-Vb";
 
   const handleSearchRecipe = async(e) => {
     e.preventDefault()

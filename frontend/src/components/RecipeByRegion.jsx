@@ -5,7 +5,7 @@ import RecipeCard from "./RecipeCard";
 import "../css/SubRegion.css"
 
 const RecipeByRegion = () => {
-  const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
+  const apiUrl = "YVooDgAgW5wOy92LHACLCuKbEmgvzUyJmJeSDe9m6TevI-Vb";
   const [recipes, setRecipes] = useState([]);
   const { Region } = useParams();
   console.log(Region);

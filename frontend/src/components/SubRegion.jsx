@@ -5,7 +5,7 @@ import "../css/SubRegion.css"
 import Loader from "./Loader";
 
 const SubRegion = () => {
-  const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
+  const apiUrl = "YVooDgAgW5wOy92LHACLCuKbEmgvzUyJmJeSDe9m6TevI-Vb";
   const [recipes, setRecipes] = useState([]);
   const { subRegion } = useParams();
   console.log(subRegion);

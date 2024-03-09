@@ -42,7 +42,7 @@ const Favorites = () => {
   const [description, setDescription] = useState("");
   useEffect(() => {
     getFavCards();
-  });
+  },[]);
   const getFavCards = async () => {
     let res = await fetch("http://127.0.0.1:8000/api/v1/fav", {
       method: "get",

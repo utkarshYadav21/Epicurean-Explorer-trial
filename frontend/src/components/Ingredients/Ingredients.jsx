@@ -14,7 +14,7 @@ const Ingredients = () => {
   const [hoveredIngredient, setHoveredIngredient] = useState(null);
   const spoonApi = "e5e6ef5e0f4943d19c0064fd19634583";
   const [description, setDescription] = useState("");
-  const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
+  const apiUrl = "YVooDgAgW5wOy92LHACLCuKbEmgvzUyJmJeSDe9m6TevI-Vb";
   useEffect(() => {
     console.log(selectedIngredient);
     setIngredientToCart();
@@ -43,18 +43,18 @@ const Ingredients = () => {
   };
   const { id } = useParams();
 
-  // const getDescription = async () => {
-  //   console.log();
-  //   let des = await fetch("http://127.0.0.1:8000/api/v1/llmmodel/description", {
-  //     method: "post",
-  //     body: JSON.stringify({ recipename: RecipeTitle }),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  //   des = await des.json();
-  //   setDescription(des.description);
-  // };
+  const getDescription = async () => {
+    console.log();
+    let des = await fetch("http://127.0.0.1:8000/api/v1/llmmodel/description", {
+      method: "post",
+      body: JSON.stringify({ recipename: RecipeTitle }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    des = await des.json();
+    setDescription(des.description);
+  };
 
   const setIngredientToCart = async () => {
     console.log(selectedIngredient);
@@ -84,7 +84,7 @@ const Ingredients = () => {
     if (recipe.success === "true") {
       setRecipeTitle(recipe.payload.Recipe_title);
       setRecipeImage(recipe.payload.img_url);
-      // getDescription();
+      getDescription();
     } else {
       alert("no recipe of the day found");
     }

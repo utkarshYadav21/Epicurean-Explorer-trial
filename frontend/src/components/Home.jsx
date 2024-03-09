@@ -10,7 +10,7 @@ import Loader from "./Loader";
 const Home = () => {
   const navigate = useNavigate("");
   const [loading, setLoading] = useState(true);
-  const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
+  const apiUrl = "YVooDgAgW5wOy92LHACLCuKbEmgvzUyJmJeSDe9m6TevI-Vb";
   const [searchRecipe, setSearchRecipe] = useState("");
   const [description, setDescription] = useState("");
   const [dayRecipe, setDayRecipe] = useState("");
