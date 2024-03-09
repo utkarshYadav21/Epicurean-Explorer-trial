@@ -62,7 +62,7 @@ const Favorites = () => {
  };
 
  return (
-    <FavoritesContainer>
+    <FavoritesContainer style={{height:"100vh"}}>
       <Title>Favourites</Title>
       <Description>Your chosen collection is here to make you smile—it's like it was made just for you!</Description>
       <ProductsContainer>
