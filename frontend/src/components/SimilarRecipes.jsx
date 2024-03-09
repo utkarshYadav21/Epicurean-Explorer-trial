@@ -33,7 +33,7 @@ const SimilarRecipes = () => {
     getSimilarRecipes();
   }, []);
   return (
-    <div>
+    <div style={{height : "100vh"}}>
       <h1 style={{marginLeft :"5%"}}>Here are the dishes Similar to the previous dish...</h1>
       <div className="simrec-container">
       {recipes.map((recipe, index) => {
