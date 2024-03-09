@@ -101,8 +101,8 @@ Epicurean Explorer offers a diverse range of features to make your recipe explor
      
 
 ## 5. API Documentation
-
-...
+For API Documentation, please refer to
+[API Documentation](https://documenter.getpostman.com/view/30406371/2sA2xh2YAB) 
 
 ## 6. Custom Features
 
@@ -110,13 +110,10 @@ Epicurean Explorer offers a diverse range of features to make your recipe explor
    - Combined endpoints to get similar recipes by process using our backend, Recipe API, and custom logic.
    - Identify recipes with similar processes for a more diverse and personalized recipe exploration.
 
-...
-
 ## 7. Troubleshooting
 
 - **Issue:** Unable to retrieve recipe details.
   - **Solution:** Ensure a stable internet connection and verify the Recipe API key.
-
 - **Issue:** Error while saving favorite recipes.
   - **Solution:** Check your internet connection and ensure you are logged in.
 
