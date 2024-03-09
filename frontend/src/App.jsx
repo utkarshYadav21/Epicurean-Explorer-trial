@@ -15,6 +15,7 @@ import Cart from "./components/cart";
 import SearchRecipeByRegion from "./components/RecipeByRegion/SearchRecipeByRegion";
 import SubRegion from "./components/SubRegion";
 import RecipeByRegion from "./components/RecipeByRegion";
+import SimilarRecipes from "./components/SimilarRecipes";
 
 function App() {
   return (
@@ -29,13 +30,12 @@ function App() {
           <Route path="/ingredients" element={<Ingredients/>}/>
           <Route path="/favourites" element={<Favorites />}/>
           <Route path="/cart" element={<Cart />} />
+          <Route path="/similar/:id" element={<SimilarRecipes />}/>
           <Route path="/recipe" element={<SearchRecipeByRegion />}/>
           <Route path="/recipe/:id" element={<RecipeProfile />} />
           <Route path="/recipeIns/:id" element={<Ingredients />} />
           <Route path="/recipebySubregion/:subRegion" element={<SubRegion />} />
           <Route path="/recipebyRegion/:Region" element={<RecipeByRegion />} />
-
-          
         </Routes>
         <Footer />
       </BrowserRouter>

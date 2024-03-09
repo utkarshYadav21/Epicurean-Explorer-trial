@@ -75,6 +75,7 @@ const Ingredients = () => {
     });
     ingIns = await ingIns.json();
     let { ingredients, instructions } = ingIns;
+    console.log(ingIns)
     setListIngredients(ingredients);
     setInstructionList(instructions);
   };
@@ -105,14 +106,7 @@ const Ingredients = () => {
                         </div>
                       </div>
                       <div className={styles.depth9Frame1}>
-                        <div className={styles.depth10Frame01}>
-                          <div
-                            className={styles.thisGrilledSalmon}
-                            style={{ marginTop: "-60px" }}
-                          >
-                            {description}
-                          </div>
-                        </div>
+                        
                       </div>
                     </div>
                   </div>

@@ -41,13 +41,16 @@ const RecipeProfile = () => {
   const handleClick=()=>{
     navigate(`/recipeIns/${id}`);
   }
+  const handleSimilarClick=()=>{
+    navigate(`/similar/${id}`);
+  }
   return (
     <div>
       <div className="recipe-profile-container">
         <div className="recipe-profile-name">
           <h1 style={{ fontSize: "88px" }}>{RecipeTitle}</h1>
           <div className="recipe-profile-btn-div">
-            <button className="recipe-profile-btn capitalize-first-letter">
+            <button onClick={handleSimilarClick} className="recipe-profile-btn capitalize-first-letter">
               Similar Recipes
             </button>
             <button onClick={handleClick} className="recipe-profile-btn capitalize-first-letter">
