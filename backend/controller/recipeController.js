@@ -56,6 +56,7 @@ exports.getsimilarRecipe = catchasync(async (req,res,next)=>{
     const recipeData = await getbyID(recipeid);
   
 
+  
     // Extract the 'process' property from the recipe data
     const processString = recipeData.payload.Processes;
 
@@ -72,7 +73,7 @@ exports.getsimilarRecipe = catchasync(async (req,res,next)=>{
     }
 
     const similarrecipeResponse = await axios(config)
-    console.log(similarrecipeResponse.data.payload.data)
+    //  console.log(similarrecipeResponse.data.payload.data)
     similarRecipeArray = similarrecipeResponse.data.payload.data
 
     const extractedData = similarRecipeArray.map(recipe => ({
@@ -84,6 +85,7 @@ exports.getsimilarRecipe = catchasync(async (req,res,next)=>{
 
 
     console.log(maxOccurrenceWord)
+    console.log(extractedData)
     res.status(200).json({
       status: 'success',
       data: {
