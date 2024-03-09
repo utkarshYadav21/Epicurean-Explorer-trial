@@ -8,18 +8,31 @@ const Ingredients = () => {
   const [listIngerdients, setListIngredients] = useState([]);
   const [instructionList, setInstructionList] = useState([]);
   const [selectedIngredient, setSelectedIngredient] = useState("");
+  const [selectedIngredientModel, setSelectedIngredientModel] = useState("");
+  const spoonApi="e5e6ef5e0f4943d19c0064fd19634583"
   const [description, setDescription] = useState("");
   const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
   useEffect(() => {
     console.log(selectedIngredient);
     setIngredientToCart();
+    getRecipe();
+    getIngredients();
   }, [selectedIngredient]);
 
   const scrollToInstructions = () => {
     const instructionsSection = document.getElementById("instructionsSection");
     instructionsSection.scrollIntoView({ behavior: "smooth" });
   };
-
+  // const ImageIngredient=async()=>{
+  //   let res=await fetch(`https://api.spoonacular.com/food/ingredients/search?query=${selectedIngredientModel}&apiKey=${spoonApi}`,{
+  //     method:'get',
+  //     headers:{
+  //       'Content-Type':'aplication/json'
+  //     }
+  //   });
+  //   res=await res.json();
+  //   console.log(res);
+  // }
   const { id } = useParams();
 
   // const getDescription = async () => {
@@ -79,8 +92,6 @@ const Ingredients = () => {
     setListIngredients(ingredients);
     setInstructionList(instructions);
   };
-  getRecipe();
-  getIngredients();
 
   return (
     <div className={styles.galileoDesign}>
@@ -154,6 +165,10 @@ const Ingredients = () => {
                     onClick={() => {
                       setSelectedIngredient(ing);
                     }}
+                    // onMouseEnter={() => {
+                    //   setSelectedIngredientModel(ing)
+                    //   ImageIngredient();
+                    // }}
                   >
                     <div className={styles.depth6Frame013}>
                       <div className={styles.depth7Frame015}>
