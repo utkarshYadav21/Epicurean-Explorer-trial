@@ -21,26 +21,35 @@ const RecipeProfile = () => {
     getRecipe();
   }, []);
   const getRecipe = async () => {
+    console.log(id)
     let res = await fetch(`https://apis-new.foodoscope.com/recipe/${id}`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${apiUrl}`,
+        "Authorization": `Bearer ${apiUrl}`,
       },
     });
     res = await res.json();
-    setRecipe(res);
-    console.log(recipe);
-    if (res.success === "true") {
-      setRecipeTitle(recipe.payload.Recipe_title);
-      setRecipeImage(recipe.payload.img_url);
-      setCalories(recipe.payload.Calories);
-      setEnergy(recipe.payload["Energy (kcal)"]);
-      setProtein(recipe.payload["Protein (g)"]);
-      setFat(recipe.payload["Total lipid (fat) (g)"]);
-      setCarbs(recipe.payload["Carbohydrate, by difference (g)"]);
+    console.log(res)
+    setRecipe(res.payload);
+    // console.log(res.payload.calories)
+    // console.log(res.payload.img_url)
+    // console.log(res.payload.Recipe_title)
+    // console.log(res.payload["Energy (kcal)"])
+    // console.log(res.payload["Protein (g)"])
+    // console.log(res.payload["Total lipid (fat) (g)"])
+    // console.log(res.payload["Carbohydrate, by difference (g)"])
+    if(res.success==="true"){
+      setRecipeTitle(res.payload.Recipe_title);
+      setRecipeImage(res.payload.img_url);
+      setCalories(res.payload.Calories);
+      setEnergy(res.payload["Energy (kcal)"]);
+      setProtein(res.payload["Protein (g)"]);
+      setFat(res.payload["Total lipid (fat) (g)"]);
+      setCarbs(res.payload["Carbohydrate, by difference (g)"]);
+    
     } else {
-      alert("no recipe of the day found");
+      alert("no recipe found");
     }
   };
   const handleClick = () => {

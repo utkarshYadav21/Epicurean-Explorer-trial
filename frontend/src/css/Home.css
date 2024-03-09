@@ -90,6 +90,7 @@ span {
     cursor: pointer;
 }
 .adopt-btn:hover{
+    color: black;
     background-color: white;
 }
 .adopt-div-r{
@@ -129,6 +130,7 @@ span {
 }
 
 .giveaway-btn:hover{
+    color: black;
     background-color: white;
 }
 

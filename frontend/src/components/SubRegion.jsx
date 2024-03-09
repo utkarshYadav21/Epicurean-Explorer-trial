@@ -38,6 +38,7 @@ const SubRegion = () => {
             title={recipe.Recipe_title}
             key={index}
             image={recipe.img_url}
+            id={recipe.Recipe_id}
           />
         );
       })}

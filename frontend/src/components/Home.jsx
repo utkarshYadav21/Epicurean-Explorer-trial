@@ -223,7 +223,7 @@ const Home = () => {
               style={{ display: "none" }}
               onChange={handleImageUpload}
             />
-            <button
+            <button className="adopt-btn"
               onClick={() =>
                 document.querySelector('input[type="file"]').click()
               }

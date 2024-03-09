@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "./Loader";
 import RecipeCard from "./RecipeCard";
+import "../css/SubRegion.css"
 
 const RecipeByRegion = () => {
   const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
@@ -23,22 +24,26 @@ const RecipeByRegion = () => {
       }
     );
     res = await res.json();
+    console.log(res);
     setRecipes(res.payload.data);
     console.log(recipes);
   };
   return (
     <div>
       {/* recipes?( */}
-      <h1>Here are the dishes for the searched region...</h1>
+      <h1 style={{marginLeft:"5%"}}>{`Explore the spice of ${Region} Continent`}</h1>
+      <div className="parentContainer-subregion">
       {recipes.map((recipe, index) => {
         return (
-          <RecipeCard
+          <RecipeCard className="card-subregion"
             title={recipe.Recipe_title}
             key={index}
             image={recipe.img_url}
+            id={recipe.Recipe_id}
           />
         );
       })}
+      </div>
       {/* ):
       <Loader /> */}
     </div>

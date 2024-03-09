@@ -42,7 +42,7 @@ const SearchRecipeByRegion = () => {
         <input
           type="text"
           className="search-input"
-          placeholder="Search by region..."
+          placeholder="Search by sub-region..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
