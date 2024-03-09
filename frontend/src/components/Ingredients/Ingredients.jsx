@@ -106,7 +106,7 @@ const Ingredients = () => {
 
   return (
     <div className={styles.galileoDesign}>
-      {/* listIngerdients && instructionList && RecipeImage && RecipeTitle ?( */}
+      {listIngerdients.length > 0 ?(
       <main className={styles.depth0Frame0}>
         <section className={styles.frameSave}>
           <div className={styles.grilledSalmonWithAvocadoSa}>
@@ -234,8 +234,8 @@ const Ingredients = () => {
           </div>
         </section>
       </main>
-      {/* ):
-      <Loader /> */}
+      ):
+      (<Loader />)}
     </div>
   );
 };
