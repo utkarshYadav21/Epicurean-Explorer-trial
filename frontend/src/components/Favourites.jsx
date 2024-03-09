@@ -42,7 +42,7 @@ const Favorites = () => {
   const [description, setDescription] = useState("");
   useEffect(() => {
     getFavCards();
-  },[]);
+  }, []);
   const getFavCards = async () => {
     let res = await fetch("http://127.0.0.1:8000/api/v1/fav", {
       method: "get",
@@ -62,24 +62,27 @@ const Favorites = () => {
 
   return (
     <FavoritesContainer style={{ height: "100vh" }}>
-      {/* fav?( */}
-      <Title>Favourites</Title>
-      <Description>
-        Your chosen collection is here to make you smile—it's like it was made
-        just for you!
-      </Description>
-      <ProductsContainer>
-        {fav.map((favourite) => (
-          <Product key={favourite.id}>
-            <RecipeCard
-              title={favourite.Recipe_title}
-              image={favourite.img_url}
-            />
-          </Product>
-        ))}
-      </ProductsContainer>
-      {/* ):
-      <Loader /> */}
+      {fav.length>0 ? (
+        <>
+          <Title>Favourites</Title>
+          <Description>
+            Your chosen collection is here to make you smile—it's like it was
+            made just for you!
+          </Description>
+          <ProductsContainer>
+            {fav.map((favourite) => (
+              <Product key={favourite.id}>
+                <RecipeCard
+                  title={favourite.Recipe_title}
+                  image={favourite.img_url}
+                />
+              </Product>
+            ))}
+          </ProductsContainer>
+        </>
+      ) : (
+        <Loader />
+      )}
     </FavoritesContainer>
   );
 };
