@@ -206,7 +206,7 @@ const Ingredients = () => {
               </div>
               {instructionList.map((ins, index) => {
                 return (
-                  <div key={index} className={styles.instruction} style={{backgroundColor:"#4f964f"}}>
+                  <div key={index} className={styles.instruction} style={{backgroundColor:"white"}}>
                     <p className={styles.instructionText}>{ins}</p>
                   </div>
                 );

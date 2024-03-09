@@ -53,9 +53,10 @@ const stringifiedData = recipeinfo.data.payload.instructions;
     const recipeStepsArray = finalHTMLinstruction.split(". ");
 
 // Now you have an array of strings
-    recipeStepsArray.forEach(step => {
-        console.log(step);
-    });
+console.log(recipeStepsArray)
+    // recipeStepsArray.forEach(step => {
+    //     console.log(step);
+    // });
 
     res.status(201).json({
         status : "success",
