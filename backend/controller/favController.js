@@ -26,20 +26,23 @@ exports.getfavrecipe = catchasync(async (req,res,next)=>{
     if(!userid){
         return next(new AppError("You're not logged In, Please Login"))
     }
+    //console.log(userid)
     const favArray = req.user.favrecipes
     console.log(favArray);
     if(!favArray){
       return next(new AppError("Currently you have no favourite recipes \nStart Adding Recipes to your Favuorites"))
     }
 
-     // Use Promise.all to await all asynchronous calls
+  
+    
+ // Use Promise.all to await all asynchronous calls
   const favRecipeDetails = await Promise.all(
     favArray.map(async (recipeId) => {
       return await getbyID(recipeId);
     })
   );
 
-
+//console.log("fiudfhi")
   
   const formattedFavRecipeDetails = favRecipeDetails.map((recipe) => {
     return {

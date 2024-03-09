@@ -15,6 +15,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-pro", generationConfig }
 
 exports.generateAIContent = catchasync(async (req,res,next)=> {
 const recipeid = req.body.recipeid
+//console.log(recipeid)
 let config = {
     method : 'GET',
     url : `https://apis-new.foodoscope.com/recipe/${recipeid}`,
@@ -25,7 +26,6 @@ let config = {
 }
 
 const recipeinfo = await axios(config);
-
 if(!recipeinfo.data.payload.ingredients){
     return next(new AppError("No ingredients Found in the payload or payload "))
 }
