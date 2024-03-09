@@ -19,6 +19,7 @@ const Home = () => {
     getTopRecipes();
   }, []);
   const handleSearchRecipe = async () => {
+    // console.log(selectedImage);
     if (searchRecipe && selectedImage) {
       alert("Please select only one search.");
     } else if (searchRecipe) {
@@ -107,12 +108,10 @@ const Home = () => {
   };
 
   const handleImageUpload = (event) => {
-    if (event.target && event.target.files && event.target.files.length > 0) {
-      const file = event.target.files[0];
-      setSelectedImage(file);
-    } else {
-      console.error("No file selected or event target is undefined");
-    }
+    const file = event.target.files[0];
+    console.log(file);
+    setSelectedImage(file);
+    console.log(selectedImage)
   };
   const handleImageRemove = () => {
     setSelectedImage(null);

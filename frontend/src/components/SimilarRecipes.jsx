@@ -19,7 +19,8 @@ const SimilarRecipes = () => {
           },
         });
         const data = await res.json();
-        if (data.success) {
+        console.log(data)
+        if (data.status==="success") {
           setRecipes(data.data.similarrecipes);
         } else {
           console.error("Failed to fetch similar recipes");
@@ -38,7 +39,7 @@ const SimilarRecipes = () => {
       {recipes.map((recipe, index) => {
         return (
           <RecipeCard className = "simrec-reccard"
-            title={recipe.Recipe_title}
+            title={recipe.recipe_title}
             key={index}
             image={recipe.img_url}
           />
