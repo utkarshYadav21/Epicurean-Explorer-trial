@@ -1,9 +1,12 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "../css/recipeProfile.css";
 import { useNavigate, useParams } from "react-router-dom";
+import Loader from "./Loader";
 
 const RecipeProfile = () => {
-  const navigate=useNavigate('')
+  const navigate = useNavigate("");
+  const [loading, setLoading] = useState(true);
+  const [recipe, setRecipe] = useState("");
   const [RecipeTitle, setRecipeTitle] = useState("");
   const [RecipeImage, setRecipeImage] = useState("");
   const [calories, setCalories] = useState("");
@@ -16,17 +19,19 @@ const RecipeProfile = () => {
   const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
   useEffect(() => {
     getRecipe();
-  },[]);
+  }, []);
   const getRecipe = async () => {
-    let recipe = await fetch(`https://apis-new.foodoscope.com/recipe/${id}`, {
+    let res = await fetch(`https://apis-new.foodoscope.com/recipe/${id}`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${apiUrl}`,
+        Authorization: `Bearer ${apiUrl}`,
       },
     });
-    recipe = await recipe.json();
-    if (recipe.success === "true") {
+    res = await res.json();
+    setRecipe(res);
+    console.log(recipe);
+    if (res.success === "true") {
       setRecipeTitle(recipe.payload.Recipe_title);
       setRecipeImage(recipe.payload.img_url);
       setCalories(recipe.payload.Calories);
@@ -38,63 +43,67 @@ const RecipeProfile = () => {
       alert("no recipe of the day found");
     }
   };
-  const handleClick=()=>{
+  const handleClick = () => {
     navigate(`/recipeIns/${id}`);
-  }
-  const handleSimilarClick=()=>{
+  };
+  const handleSimilarClick = () => {
     navigate(`/similar/${id}`);
-  }
+  };
   return (
     <div>
+      {/* recipe?( */}
       <div className="recipe-profile-container">
         <div className="recipe-profile-name">
           <h1 style={{ fontSize: "88px" }}>{RecipeTitle}</h1>
           <div className="recipe-profile-btn-div">
-            <button onClick={handleSimilarClick} className="recipe-profile-btn capitalize-first-letter">
+            <button
+              onClick={handleSimilarClick}
+              className="recipe-profile-btn capitalize-first-letter"
+            >
               Similar Recipes
             </button>
-            <button onClick={handleClick} className="recipe-profile-btn capitalize-first-letter">
+            <button
+              onClick={handleClick}
+              className="recipe-profile-btn capitalize-first-letter"
+            >
               Start Making
             </button>
           </div>
         </div>
         <div className="recipe-profile-image-div">
-          <img
-            src={RecipeImage}
-            className="recipe-profile-image"
-          />
+          <img src={RecipeImage} className="recipe-profile-image" />
         </div>
       </div>
       <div className="nutrients-div">
-        <div className="nutrient-div" style={{margin:"0px 10px"}}>
+        <div className="nutrient-div" style={{ margin: "0px 10px" }}>
           <h3>
             Energy
             <br />
             {energy}
           </h3>
         </div>
-        <div className="nutrient-div" style={{margin:"0px 10px"}}>
+        <div className="nutrient-div" style={{ margin: "0px 10px" }}>
           <h3>
             Carbs
             <br />
             {carbs}
           </h3>
         </div>
-        <div className="nutrient-div" style={{margin:"0px 10px"}}>
+        <div className="nutrient-div" style={{ margin: "0px 10px" }}>
           <h3>
             Calories
             <br />
             {calories}
           </h3>
         </div>
-        <div className="nutrient-div" style={{margin:"0px 10px"}}>
+        <div className="nutrient-div" style={{ margin: "0px 10px" }}>
           <h3>
             Protein
             <br />
             {protein}
           </h3>
         </div>
-        <div className="nutrient-div" style={{margin:"0px 10px"}}>
+        <div className="nutrient-div" style={{ margin: "0px 10px" }}>
           <h3>
             Fat
             <br />
@@ -102,6 +111,8 @@ const RecipeProfile = () => {
           </h3>
         </div>
       </div>
+      {/* ):
+      <Loader /> */}
     </div>
   );
 };

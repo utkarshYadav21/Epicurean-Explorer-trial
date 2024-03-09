@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RecipeCard from "./RecipeCard";
 import "../css/SubRegion.css"
+import Loader from "./Loader";
 
 const SubRegion = () => {
   const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
@@ -28,6 +29,7 @@ const SubRegion = () => {
   };
   return (
     <div>
+    {/* recipes?( */}
       <h1 style={{marginLeft :"5%"}}><u>{`Let's Choose a ${subRegion} Recipe to Make`}</u></h1>
       <div className="parentContainer-subregion">
       {recipes.map((recipe, index) => {
@@ -40,6 +42,7 @@ const SubRegion = () => {
         );
       })}
       </div>
+      {/* ):<Loader /> */}
     </div>
   );
 };

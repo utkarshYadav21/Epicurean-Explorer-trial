@@ -1,5 +1,7 @@
-import React,{useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Loader from "./Loader";
+import RecipeCard from "./RecipeCard";
 
 const RecipeByRegion = () => {
   const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
@@ -26,6 +28,7 @@ const RecipeByRegion = () => {
   };
   return (
     <div>
+      {/* recipes?( */}
       <h1>Here are the dishes for the searched region...</h1>
       {recipes.map((recipe, index) => {
         return (
@@ -36,6 +39,8 @@ const RecipeByRegion = () => {
           />
         );
       })}
+      {/* ):
+      <Loader /> */}
     </div>
   );
 };

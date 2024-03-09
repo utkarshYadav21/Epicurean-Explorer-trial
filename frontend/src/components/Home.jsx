@@ -5,9 +5,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { TbCameraShare } from "react-icons/tb";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import RecipeName from "./RecipeName";
+import Loader from "./Loader";
 
 const Home = () => {
   const navigate = useNavigate("");
+  const [loading, setLoading] = useState(true);
   const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
   const [searchRecipe, setSearchRecipe] = useState("");
   const [description, setDescription] = useState("");
@@ -18,8 +20,9 @@ const Home = () => {
   useEffect(() => {
     getTopRecipes();
   }, []);
+
   const handleSearchRecipe = async () => {
-    // console.log(selectedImage);
+    console.log(selectedImage);
     if (searchRecipe && selectedImage) {
       alert("Please select only one search.");
     } else if (searchRecipe) {
@@ -44,10 +47,24 @@ const Home = () => {
         method: "POST",
         body: formData,
       });
-      if (response.ok) {
-        response = await response.json();
-        let recipeName = response.data.label;
+      response = await response.json();
+      if (response.status==="success") {
+        let recipeName = response.data;
         console.log(recipeName);
+        let recipe = await fetch(
+          `https://apis-new.foodoscope.com/recipe-search/recipe?searchText=${recipeName}&page=0&pageSize=1`,
+          {
+            method: "get",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${apiUrl}`,
+            },
+          }
+        );
+        recipe = await recipe.json();
+        console.log(recipe);
+        console.log(recipe.payload.data[0].Recipe_id);
+        navigate(`/recipe/${recipe.payload.data[0].Recipe_id}`);
       } else {
         alert("Failed to upload image.");
       }
@@ -111,14 +128,14 @@ const Home = () => {
     const file = event.target.files[0];
     console.log(file);
     setSelectedImage(file);
-    console.log(selectedImage)
+    console.log(selectedImage);
   };
   const handleImageRemove = () => {
     setSelectedImage(null);
   };
   return (
-    <div>
-      <div className="page-container">
+    <div >
+    {dayRecipe?(<div className="page-container">
         <div className="intro-container">
           <h1 className="intro">
             Explore more than <br></br>{" "}
@@ -249,7 +266,7 @@ const Home = () => {
             handleFavourite={handleFavourite}
           />
         </div>
-      </div>
+      </div>):<Loader />}
     </div>
   );
 };

@@ -1,13 +1,14 @@
-import React,{useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RecipeCard from "./RecipeCard";
-import "../css/SimilarRecipe.css"
+import "../css/SimilarRecipe.css";
+import Loader from "./Loader";
 
 const SimilarRecipes = () => {
   const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
   const [recipes, setRecipes] = useState([]);
-  const {id}=useParams();
-  console.log(id)
+  const { id } = useParams();
+  console.log(id);
   useEffect(() => {
     const getSimilarRecipes = async () => {
       try {
@@ -19,8 +20,8 @@ const SimilarRecipes = () => {
           },
         });
         const data = await res.json();
-        console.log(data)
-        if (data.status==="success") {
+        console.log(data);
+        if (data.status === "success") {
           setRecipes(data.data.similarrecipes);
         } else {
           console.error("Failed to fetch similar recipes");
@@ -34,18 +35,24 @@ const SimilarRecipes = () => {
   }, []);
   return (
     <div>
-      <h1 style={{marginLeft :"5%"}}>Here are the dishes Similar to the previous dish...</h1>
+      {/* recipes?( */}
+      <h1 style={{ marginLeft: "5%" }}>
+        Here are the dishes Similar to the previous dish...
+      </h1>
       <div className="simrec-container">
-      {recipes.map((recipe, index) => {
-        return (
-          <RecipeCard className = "simrec-reccard"
-            title={recipe.recipe_title}
-            key={index}
-            image={recipe.img_url}
-          />
-        );
-      })}
+        {recipes.map((recipe, index) => {
+          return (
+            <RecipeCard
+              className="simrec-reccard"
+              title={recipe.recipe_title}
+              key={index}
+              image={recipe.img_url}
+            />
+          );
+        })}
       </div>
+      {/* ):
+      <Loader /> */}
     </div>
   );
 };

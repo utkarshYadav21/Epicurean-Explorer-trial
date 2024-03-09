@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./ingredient.module.css";
 import { useParams } from "react-router-dom";
+import Loader from "../Loader";
 
 const Ingredients = () => {
   const [RecipeTitle, setRecipeTitle] = useState("");
@@ -9,7 +10,9 @@ const Ingredients = () => {
   const [instructionList, setInstructionList] = useState([]);
   const [selectedIngredient, setSelectedIngredient] = useState("");
   const [selectedIngredientModel, setSelectedIngredientModel] = useState("");
-  const spoonApi="e5e6ef5e0f4943d19c0064fd19634583"
+  const [ingredientImageModel, setIngredientImageModel] = useState("");
+  const [hoveredIngredient, setHoveredIngredient] = useState(null);
+  const spoonApi = "e5e6ef5e0f4943d19c0064fd19634583";
   const [description, setDescription] = useState("");
   const apiUrl = "3leNqlRrbeJc26ppKLFkb4GwUUzdUrgZ8Ds-cU2MGEL_DZE4";
   useEffect(() => {
@@ -23,16 +26,21 @@ const Ingredients = () => {
     const instructionsSection = document.getElementById("instructionsSection");
     instructionsSection.scrollIntoView({ behavior: "smooth" });
   };
-  // const ImageIngredient=async()=>{
-  //   let res=await fetch(`https://api.spoonacular.com/food/ingredients/search?query=${selectedIngredientModel}&apiKey=${spoonApi}`,{
-  //     method:'get',
-  //     headers:{
-  //       'Content-Type':'aplication/json'
-  //     }
-  //   });
-  //   res=await res.json();
-  //   console.log(res);
-  // }
+  const ImageIngredient = async () => {
+    let res = await fetch(
+      `https://api.spoonacular.com/food/ingredients/search?query=${selectedIngredientModel}&apiKey=${spoonApi}`,
+      {
+        method: "get",
+        headers: {
+          "Content-Type": "aplication/json",
+        },
+      }
+    );
+    res = await res.json();
+    setIngredientImageModel(res.results[0].image);
+    console.log(ingredientImageModel);
+    console.log(res);
+  };
   const { id } = useParams();
 
   // const getDescription = async () => {
@@ -52,10 +60,13 @@ const Ingredients = () => {
     console.log(selectedIngredient);
     let res = await fetch("http://127.0.0.1:8000/api/v1/cart", {
       method: "post",
-      body: JSON.stringify({ recipename: RecipeTitle, ingredient:selectedIngredient }),
+      body: JSON.stringify({
+        recipename: RecipeTitle,
+        ingredient: selectedIngredient,
+      }),
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
     });
     res = await res.json();
@@ -88,13 +99,14 @@ const Ingredients = () => {
     });
     ingIns = await ingIns.json();
     let { ingredients, instructions } = ingIns;
-    console.log(ingIns)
+    console.log(ingIns);
     setListIngredients(ingredients);
     setInstructionList(instructions);
   };
 
   return (
     <div className={styles.galileoDesign}>
+      {/* listIngerdients && instructionList && RecipeImage && RecipeTitle ?( */}
       <main className={styles.depth0Frame0}>
         <section className={styles.frameSave}>
           <div className={styles.grilledSalmonWithAvocadoSa}>
@@ -116,9 +128,7 @@ const Ingredients = () => {
                           </h1>
                         </div>
                       </div>
-                      <div className={styles.depth9Frame1}>
-                        
-                      </div>
+                      <div className={styles.depth9Frame1}></div>
                     </div>
                   </div>
                   <div
@@ -167,8 +177,10 @@ const Ingredients = () => {
                     }}
                     // onMouseEnter={() => {
                     //   setSelectedIngredientModel(ing)
+                    //   setHoveredIngredient(ing)
                     //   ImageIngredient();
                     // }}
+                    onMouseLeave={() => setHoveredIngredient(null)}
                   >
                     <div className={styles.depth6Frame013}>
                       <div className={styles.depth7Frame015}>
@@ -185,6 +197,9 @@ const Ingredients = () => {
                     <div className={styles.depth6Frame15}>
                       <div className={styles.depth7Frame016}>
                         <div>{ing}</div>
+                        {hoveredIngredient === ing && ( // Conditionally render the image next to the hovered ingredient
+                          <img src={ingredientImageModel} alt="Ingredient" />
+                        )}
                       </div>
                     </div>
                   </div>
@@ -206,7 +221,11 @@ const Ingredients = () => {
               </div>
               {instructionList.map((ins, index) => {
                 return (
-                  <div key={index} className={styles.instruction} style={{backgroundColor:"white"}}>
+                  <div
+                    key={index}
+                    className={styles.instruction}
+                    style={{ backgroundColor: "white" }}
+                  >
                     <p className={styles.instructionText}>{ins}</p>
                   </div>
                 );
@@ -215,6 +234,8 @@ const Ingredients = () => {
           </div>
         </section>
       </main>
+      {/* ):
+      <Loader /> */}
     </div>
   );
 };
