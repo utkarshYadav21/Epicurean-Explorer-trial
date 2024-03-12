@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./ingredient.module.css";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader";
+import apiUrl from "../../config";
 
 const Ingredients = () => {
   const [RecipeTitle, setRecipeTitle] = useState("");
@@ -14,7 +15,7 @@ const Ingredients = () => {
   const [hoveredIngredient, setHoveredIngredient] = useState(null);
   const spoonApi = "e5e6ef5e0f4943d19c0064fd19634583";
   const [description, setDescription] = useState("");
-  const apiUrl = "YVooDgAgW5wOy92LHACLCuKbEmgvzUyJmJeSDe9m6TevI-Vb";
+  
   useEffect(() => {
     console.log(selectedIngredient);
     setIngredientToCart();

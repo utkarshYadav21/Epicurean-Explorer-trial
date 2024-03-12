@@ -3,11 +3,12 @@ import "./SearchRecipeByRegion.css";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import ImageCard from "../ImageCard";
+import apiUrl from "../../config";
 
 const SearchRecipeByRegion = () => {
   const navigate=useNavigate('')
   const [searchTerm, setSearchTerm] = useState("");
-  const apiUrl = "YVooDgAgW5wOy92LHACLCuKbEmgvzUyJmJeSDe9m6TevI-Vb";
+  
 
   const handleSearchRecipe = async(e) => {
     e.preventDefault()

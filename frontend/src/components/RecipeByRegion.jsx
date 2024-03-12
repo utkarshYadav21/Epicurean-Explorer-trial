@@ -3,9 +3,10 @@ import { useParams } from "react-router-dom";
 import Loader from "./Loader";
 import RecipeCard from "./RecipeCard";
 import "../css/SubRegion.css"
+import apiUrl from "../config";
 
 const RecipeByRegion = () => {
-  const apiUrl = "YVooDgAgW5wOy92LHACLCuKbEmgvzUyJmJeSDe9m6TevI-Vb";
+  
   const [recipes, setRecipes] = useState([]);
   const { Region } = useParams();
   console.log(Region);

@@ -6,11 +6,11 @@ import { TbCameraShare } from "react-icons/tb";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import RecipeName from "./RecipeName";
 import Loader from "./Loader";
+import apiUrl from "../config";
 
 const Home = () => {
   const navigate = useNavigate("");
   const [loading, setLoading] = useState(true);
-  const apiUrl = "YVooDgAgW5wOy92LHACLCuKbEmgvzUyJmJeSDe9m6TevI-Vb";
   const [searchRecipe, setSearchRecipe] = useState("");
   const [description, setDescription] = useState("");
   const [dayRecipe, setDayRecipe] = useState("");

@@ -3,9 +3,10 @@ import { useParams } from "react-router-dom";
 import RecipeCard from "./RecipeCard";
 import "../css/SimilarRecipe.css";
 import Loader from "./Loader";
+import apiUrl from "../config";
 
 const SimilarRecipes = () => {
-  const apiUrl = "YVooDgAgW5wOy92LHACLCuKbEmgvzUyJmJeSDe9m6TevI-Vb";
+  
   const [recipes, setRecipes] = useState([]);
   const { id } = useParams();
   console.log(id);

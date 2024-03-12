@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../css/recipeProfile.css";
 import { useNavigate, useParams } from "react-router-dom";
 import Loader from "./Loader";
+import apiUrl from "../config";
 
 const RecipeProfile = () => {
   const navigate = useNavigate("");
@@ -16,7 +17,7 @@ const RecipeProfile = () => {
   const [carbs, setCarbs] = useState("");
 
   const { id } = useParams();
-  const apiUrl = "YVooDgAgW5wOy92LHACLCuKbEmgvzUyJmJeSDe9m6TevI-Vb";
+  
   useEffect(() => {
     getRecipe();
   }, []);
