@@ -77,8 +77,31 @@ npm run dev
    - With the configuration in place, you can now run your backend server.
    - Backend will on **127.0.0.1:8000**
 
+**Getting Started with Frontend**
+Certainly! Here's a section to be added to your README file with the provided configuration instructions:
 
-- The Application Runs on **localhost:5173**
+---
+
+## Steps
+
+1. Inside the `src` folder, create a file named `config.js`.
+2. Go to [RecipeDB API by CosyLabs IIITD](https://www.foodoscope.com/) SignUp there and generate your own RecipeDB API key
+3. Add the following code in that file and replace the YOUR_API_KEY with the key you generated above:
+
+   ```javascript
+   // src/config.js
+
+   const apiUrl = "YOUR_API_KEY";
+
+   export default apiUrl;
+   ```
+
+   Make sure to save the file after adding the `apiUrl`.
+
+4. The Frontend Application Runs on **localhost:5173**
+---
+
+
 
 
 ## 3. Architecture
