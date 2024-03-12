@@ -37,43 +37,43 @@ npm run dev
 **Getting Started with Backend**
 ## Steps
 
-1. **MongoDB Configuration:**
+1. **Save and Secure:**
+   - Save your `config.env` file securely.
+   - Ensure that this file is not shared publicly or included in version control.
+
+2. **MongoDB Configuration:**
    - Obtain your MongoDB connection string and replace the placeholder in the `DATABASE` variable.
      ```dotenv
      DATABASE=mongodb+srv://your-username:your-password@your-cluster-url/your-database-name?retryWrites=true&w=majority
      ```
 
-2. **Gemini API Key:**
+3. **Gemini API Key:**
    - Obtain your Gemini API key and replace the placeholder in the `GEMINI_API_KEY` variable.
      ```dotenv
      GEMINI_API_KEY=your-gemini-api-key
      ```
 
-3. **JWT Secret and Expiry:**
+4. **JWT Secret and Expiry:**
    - Replace the placeholders in the `SECRET` and `EXPIRY` variables with your preferred JSON Web Token (JWT) secret key and expiry duration.
      ```dotenv
      SECRET=your-secret-key-for-json-web-token
      EXPIRY=90d
      ```
 
-4. **Hugging Face API Key and Model:**
+5. **Hugging Face API Key and Model:**
    - Replace the placeholders in the `HUGGINGFACE_API_KEY`  variables with your Hugging Face API key and desired model.
      ```dotenv
      HUGGINGFACE_API_KEY=your-huggingface-api-key
      ```
 
-5. **Recipe API Key:**
+6. **Recipe API Key:**
    - Go to [RecipeDB API by CosyLabs IIITD](https://www.foodoscope.com/) SignUp there and generate your own RecipeDB API key
    - Replace the placeholder in the `RECIPE_API_KEY` variable with your Recipe API key.
      ```dotenv
      RECIPE_API_KEY=your-recipe-api-key
      ```
 
-7. **Save and Secure:**
-   - Save your `config.env` file securely.
-   - Ensure that this file is not shared publicly or included in version control.
-
-8. **Run the Backend:**
+7. **Run the Backend:**
    - With the configuration in place, you can now run your backend server.
    - Backend will on **127.0.0.1:8000**
 
