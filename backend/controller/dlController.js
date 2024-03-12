@@ -3,10 +3,10 @@ const catchasync = require('../utils/catchasync');
 const AppError = require('../utils/apperror');
 
 const INFERENCEKEY = process.env.HUGGINGFACE_API_KEY
-
+const HUGGINGFACE_MODEL = rajistics/finetuned-indian-food
 const inference = new HfInference(INFERENCEKEY);
 
-const model = process.env.HUGGINGFACE_MODEL;
+const model = HUGGINGFACE_MODEL;
 
 function toCamelCase(str) {
     // Replace underscores with spaces
