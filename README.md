@@ -17,6 +17,7 @@ Welcome to Epicurean Explorer, your ultimate recipe explorer web app! Discover a
 Welcome to Epicurean Explorer, your go-to recipe explorer! This web app empowers users to search for recipes by name, providing nutritional values, instructions, and required ingredients. Users can also log in to save their favorite recipes and maintain recipe-specific ingredient shopping lists. Leveraging our custom backend built with Node.js, Express, and MongoDB, we've integrated the Recipe API from Cosy Labs IIITD, allowing users to explore recipes from various regions globally.
 
 ## 2. Getting Started
+- Make sure you have Node install in your system
 - Install all the npm packages. 
 - Go into the project folder and type the following command to install all npm packages
 
