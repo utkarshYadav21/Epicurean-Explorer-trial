@@ -78,9 +78,7 @@ npm run dev
    - Backend will on **127.0.0.1:8000**
 
 **Getting Started with Frontend**
-Certainly! Here's a section to be added to your README file with the provided configuration instructions:
 
----
 
 ## Steps
 
@@ -99,7 +97,7 @@ Certainly! Here's a section to be added to your README file with the provided co
    Make sure to save the file after adding the `apiUrl`.
 
 4. The Frontend Application Runs on **localhost:5173**
----
+
 
 
 
